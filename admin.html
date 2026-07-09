@@ -2,82 +2,106 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safety First Admin</title>
 
-    <title>Admin Dashboard</title>
-
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<div class="container">
+<header class="topbar">
 
-    <h1>Admin Dashboard</h1>
-
-<div class="section">
-
-    <h2>Create Announcement</h2>
-
-    <input
-        type="text"
-        id="title"
-        placeholder="Announcement Title"
-    >
-
-    <textarea
-        id="message"
-        placeholder="Write your announcement..."
-        rows="6"
-    ></textarea>
-
-    <button id="postBtn">
-
-        Post Announcement
-
-    </button>
-
-</div>
-
-<hr>
-
-<div class="section">
-
-    <h2>Announcements</h2>
-
-    <div id="announcementList">
-
+    <div class="logo">
+        🛡 <span>Safety First</span>
     </div>
 
-</div>
+    <div class="user-area">
+        <span id="welcomeUser">Admin</span>
 
-<button id="logoutBtn">
-
-    Sign Out
-
-</button>
-
+        <button id="logoutBtn">
+            Sign Out
+        </button>
     </div>
 
-    <div class="section">
+</header>
 
-        <h2>Posted Announcements</h2>
+<div class="dashboard">
 
-        <div id="announcementList">
+    <aside class="sidebar">
 
-            No announcements yet.
+        <h2>Admin Menu</h2>
+
+        <ul>
+
+            <li class="active">🏠 Dashboard</li>
+
+            <li>📢 Announcements</li>
+
+            <li>👥 Users</li>
+
+            <li>📊 Reports</li>
+
+            <li>⚙ Settings</li>
+
+        </ul>
+
+    </aside>
+
+    <main class="content">
+
+        <div class="card">
+
+            <h2>📢 Create Announcement</h2>
+
+            <input
+                type="text"
+                id="title"
+                placeholder="Announcement Title"
+            >
+
+            <br><br>
+
+            <textarea
+                id="message"
+                rows="6"
+                placeholder="Write your announcement..."
+            ></textarea>
+
+            <br><br>
+
+            <select id="priority">
+
+                <option value="Normal">🟢 Normal</option>
+                <option value="Important">🟠 Important</option>
+                <option value="Emergency">🔴 Emergency</option>
+
+            </select>
+
+            <br><br>
+
+            <button id="postBtn">
+
+                Post Announcement
+
+            </button>
 
         </div>
 
-    </div>
+        <div class="card">
 
-    <button id="logoutBtn">
-        Sign Out
-    </button>
+            <h2>📢 Recent Announcements</h2>
+
+            <div id="announcementList">
+
+                No announcements yet.
+
+            </div>
+
+        </div>
+
+    </main>
 
 </div>
 

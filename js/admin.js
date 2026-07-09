@@ -1,96 +1,140 @@
 import { auth, db } from "./firebase.js";
 
 import {
-    signOut,
-    onAuthStateChanged
+    onAuthStateChanged,
+    signOut
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
 import {
     collection,
     addDoc,
     onSnapshot,
-    serverTimestamp
+    query,
+    where,
+    getDocs,
+    serverTimestamp,
+    orderBy
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
+const logoutBtn=document.getElementById("logoutBtn");
 
+const postBtn=document.getElementById("postBtn");
 
-// Check login
-onAuthStateChanged(auth, (user) => {
+const announcementList=document.getElementById("announcementList");
 
-    if (!user) {
-
-        window.location.href = "login.html";
-
-    }
-
-});
+let currentUsername="";
 
 
 
-// POST ANNOUNCEMENT
-document.getElementById("postBtn").addEventListener("click", async () => {
+onAuthStateChanged(auth, async(user)=>{
 
-    const title =
-        document.getElementById("title").value;
+if(!user){
 
-    const message =
-        document.getElementById("message").value;
+window.location="login.html";
 
-    if(title==="" || message===""){
+return;
 
-        alert("Please fill in everything.");
+}
 
-        return;
+const q=query(
+collection(db,"users"),
+where("uid","==",user.uid)
+);
 
-    }
+const snap=await getDocs(q);
 
-    await addDoc(collection(db,"announcements"),{
-
-        title:title,
-
-        message:message,
-
-        createdAt:serverTimestamp()
-
-    });
-
-    alert("Announcement Posted!");
-
-    document.getElementById("title").value="";
-
-    document.getElementById("message").value="";
+currentUsername=snap.docs[0].data().username;
 
 });
 
 
 
-// SHOW ANNOUNCEMENTS
-const announcementList =
-document.getElementById("announcementList");
+postBtn.addEventListener("click",async()=>{
 
-onSnapshot(
+const title=document.getElementById("title").value.trim();
+
+const message=document.getElementById("message").value.trim();
+
+const priority=document.getElementById("priority").value;
+
+if(title===""||message===""){
+
+alert("Complete all fields.");
+
+return;
+
+}
+
+await addDoc(collection(db,"announcements"),{
+
+title,
+
+message,
+
+priority,
+
+postedBy:currentUsername,
+
+createdAt:serverTimestamp()
+
+});
+
+alert("Announcement Posted!");
+
+document.getElementById("title").value="";
+
+document.getElementById("message").value="";
+
+});
+
+
+
+const announcementQuery=query(
+
 collection(db,"announcements"),
 
-(snapshot)=>{
+orderBy("createdAt","desc")
+
+);
+
+onSnapshot(announcementQuery,(snapshot)=>{
 
 announcementList.innerHTML="";
 
 snapshot.forEach((doc)=>{
 
-const data=doc.data();
+const a=doc.data();
 
 announcementList.innerHTML+=`
 
-<div class="section">
+<div class="announcement">
 
-<h3>${data.title}</h3>
+<h3>${a.title}</h3>
 
-<p>${data.message}</p>
+<p>${a.message}</p>
+
+<br>
+
+<small>
+
+${a.priority} • Posted by ${a.postedBy}
+
+</small>
 
 </div>
 
 `;
 
 });
+
+});
+
+
+
+logoutBtn.addEventListener("click",async()=>{
+
+await signOut(auth);
+
+window.location="index.html";
 
 });

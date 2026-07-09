@@ -9,7 +9,10 @@ import {
     collection,
     query,
     where,
-    getDocs
+    getDocs,
+    onSnapshot,
+    orderBy,
+    limit
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 const welcomeUser = document.getElementById("welcomeUser");
@@ -56,5 +59,74 @@ logoutBtn.addEventListener("click", async () => {
     await signOut(auth);
 
     window.location.href = "index.html";
+
+});
+
+// =======================
+// Latest Announcement
+// =======================
+
+const announcementBox =
+document.getElementById("announcement");
+
+const announcementQuery = query(
+
+    collection(db, "announcements"),
+
+    orderBy("createdAt", "desc"),
+
+    limit(1)
+
+);
+
+onSnapshot(announcementQuery, (snapshot) => {
+
+    if (snapshot.empty) {
+
+        announcementBox.innerHTML = "No announcements yet.";
+
+        return;
+
+    }
+
+    const announcement = snapshot.docs[0].data();
+
+    let priorityColor = "#1f4e79";
+
+    if (announcement.priority === "Emergency") {
+
+        priorityColor = "red";
+
+    }
+
+    else if (announcement.priority === "Important") {
+
+        priorityColor = "orange";
+
+    }
+
+    announcementBox.innerHTML = `
+
+        <h3 style="color:${priorityColor}">
+
+            ${announcement.priority} • ${announcement.title}
+
+        </h3>
+
+        <p>
+
+            ${announcement.message}
+
+        </p>
+
+        <br>
+
+        <small>
+
+            Posted by ${announcement.postedBy}
+
+        </small>
+
+    `;
 
 });
