@@ -75,7 +75,9 @@ priority,
 
 postedBy:currentUsername,
 
-createdAt:serverTimestamp()
+createdAt:serverTimestamp(),
+
+updatedAt:serverTimestamp()
 
 });
 
@@ -105,7 +107,15 @@ snapshot.forEach((doc)=>{
 
 const a=doc.data();
 
-announcementList.innerHTML+=`
+let date = "";
+
+if (a.createdAt) {
+
+    date = a.createdAt.toDate().toLocaleString();
+
+}
+
+announcementList.innerHTML += `
 
 <div class="announcement">
 
@@ -119,6 +129,10 @@ announcementList.innerHTML+=`
 
 ${a.priority} • Posted by ${a.postedBy}
 
+<br>
+
+🕒 ${date}
+
 </small>
 
 </div>
@@ -128,8 +142,6 @@ ${a.priority} • Posted by ${a.postedBy}
 });
 
 });
-
-
 
 logoutBtn.addEventListener("click",async()=>{
 

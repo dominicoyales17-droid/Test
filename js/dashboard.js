@@ -105,28 +105,38 @@ onSnapshot(announcementQuery, (snapshot) => {
 
     }
 
-    announcementBox.innerHTML = `
+    let date = "";
 
-        <h3 style="color:${priorityColor}">
+if (announcement.createdAt) {
+    date = announcement.createdAt.toDate().toLocaleString();
+}
 
-            ${announcement.priority} • ${announcement.title}
+announcementBox.innerHTML = `
 
-        </h3>
+<h3 style="color:${priorityColor}">
 
-        <p>
+${announcement.priority} • ${announcement.title}
 
-            ${announcement.message}
+</h3>
 
-        </p>
+<p>
 
-        <br>
+${announcement.message}
 
-        <small>
+</p>
 
-            Posted by ${announcement.postedBy}
+<br>
 
-        </small>
+<small>
 
-    `;
+Posted by ${announcement.postedBy}
+
+<br>
+
+🕒 ${date}
+
+</small>
+
+`;
 
 });
