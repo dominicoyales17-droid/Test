@@ -7,43 +7,48 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h1>Create Account</h1>
+    <h1>Create Account</h1>
 
-        <input
-            type="text"
-            id="signupUsername"
-            placeholder="Enter Username"
-        >
+    <input
+        type="text"
+        id="username"
+        placeholder="Username"
+    >
 
-        <input
-            type="password"
-            id="signupPassword"
-            placeholder="Enter Password"
-        >
+    <input
+        type="email"
+        id="email"
+        placeholder="Email Address"
+    >
 
-        <button onclick="signUp()">
-            Sign Up
-        </button>
+    <input
+        type="password"
+        id="password"
+        placeholder="Password"
+    >
 
-        <p>Already have an account?</p>
+    <button id="signupBtn">
 
-        <a href="login.html" class="button">
-            Log In
-        </a>
+        Sign Up
 
-        <br><br>
+    </button>
 
-        <a href="index.html">
-            ← Back to Home
-        </a>
+    <br><br>
 
-    </div>
+    <a href="login.html">
 
-    <script src="script.js"></script>
+        Already have an account? Log In
+
+    </a>
+
+</div>
+
+<script type="module" src="auth.js"></script>
 
 </body>
 </html>
