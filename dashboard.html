@@ -4,21 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <h1>Welcome!</h1>
+        <h1 id="welcomeMessage">Welcome!</h1>
 
-    <p>You have successfully logged in.</p>
+        <p>You have successfully logged in.</p>
 
-    <button onclick="logout()">Log Out</button>
+        <button onclick="logout()">
+            Sign Out
+        </button>
 
-</div>
+        <br><br>
 
-<script src="script.js"></script>
+        <a href="index.html">
+            Back to Home
+        </a>
+
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        // Prevent users from opening this page without logging in
+        if (localStorage.getItem("loggedIn") !== "true") {
+            window.location.href = "login.html";
+        }
+
+        // Display the logged-in user's name
+        const username = localStorage.getItem("currentUser");
+
+        if (username) {
+            document.getElementById("welcomeMessage").textContent =
+                "Welcome, " + username + "!";
+        }
+    </script>
 
 </body>
 </html>

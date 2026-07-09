@@ -4,25 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-    <h1>Log In</h1>
+    <div class="container">
 
-    <input type="text" id="loginUsername" placeholder="Username">
+        <h1>Log In</h1>
 
-    <input type="password" id="loginPassword" placeholder="Password">
+        <input
+            type="text"
+            id="loginUsername"
+            placeholder="Enter Username"
+        >
 
-    <button onclick="login()">Log In</button>
+        <input
+            type="password"
+            id="loginPassword"
+            placeholder="Enter Password"
+        >
 
-    <p>Don't have an account?</p>
-    <a href="signup.html">Sign Up</a>
+        <button onclick="login()">
+            Log In
+        </button>
 
-</div>
+        <p>Don't have an account?</p>
 
-<script src="script.js"></script>
+        <a href="signup.html" class="button">
+            Sign Up
+        </a>
+
+        <br><br>
+
+        <a href="index.html">
+            ← Back to Home
+        </a>
+
+    </div>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
