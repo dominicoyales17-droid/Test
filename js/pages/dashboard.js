@@ -7,9 +7,9 @@ import {
 
 import {
     collection,
+    doc,
+    getDoc,
     query,
-    where,
-    getDocs,
     onSnapshot,
     orderBy,
     limit,
@@ -29,57 +29,54 @@ onAuthStateChanged(auth, async (user) => {
         return;
     }
 
-    // Search for the logged-in user's document
-    const q = query(
-        collection(db, "users"),
-        where("uid", "==", user.uid)
-    );
+    // Get the logged-in user's document
+const userDoc = await getDoc(doc(db, "users", user.uid));
 
-    const snapshot = await getDocs(q);
+if (userDoc.exists()) {
 
-    if (!snapshot.empty) {
+    const data = userDoc.data();
 
-        const data = snapshot.docs[0].data();
+    welcomeUser.textContent = `Welcome, ${data.username}!`;
 
-        welcomeUser.textContent = `Welcome, ${data.username}!`;
+    const hour = new Date().getHours();
 
-const hour = new Date().getHours();
+    let message = "Good Evening";
 
-let message = "Good Evening";
+    if (hour < 12) {
 
-if(hour < 12){
+        message = "Good Morning";
 
-    message = "Good Morning";
+    }
+    else if (hour < 18) {
 
-}
-else if(hour < 18){
-
-    message = "Good Afternoon";
-
-}
-
-greeting.textContent = `${message}, ${data.username}!`;
-
-currentDate.textContent =
-new Date().toLocaleString(undefined,{
-    weekday:"long",
-    year:"numeric",
-    month:"long",
-    day:"numeric",
-    hour:"numeric",
-    minute:"2-digit"
-});
-
-usernameDisplay.innerHTML = `
-Welcome back to the Safety Information and Preparedness Management System.
-`;
-
-    } else {
-
-        usernameDisplay.textContent = "User data not found.";
+        message = "Good Afternoon";
 
     }
 
+    greeting.textContent = `${message}, ${data.username}!`;
+
+    currentDate.textContent =
+        new Date().toLocaleString(undefined, {
+
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "numeric",
+            minute: "2-digit"
+
+        });
+
+    usernameDisplay.innerHTML = `
+        Welcome back to the Safety Information and Preparedness Management System.
+    `;
+
+}
+else {
+
+    usernameDisplay.textContent = "User data not found.";
+
+}
 });
 
 logoutBtn.addEventListener("click", async () => {

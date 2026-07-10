@@ -6,10 +6,8 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
 import {
-    collection,
-    query,
-    where,
-    getDocs,
+    doc,
+    getDoc,
     updateDoc
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
@@ -35,18 +33,19 @@ onAuthStateChanged(auth, async (user) => {
         return;
     }
 
-    const q = query(
-        collection(db, "users"),
-        where("uid", "==", user.uid)
-    );
+    userDocRef = doc(db, "users", user.uid);
 
-    const snapshot = await getDocs(q);
+    const snapshot = await getDoc(userDocRef);
 
-    if (snapshot.empty) return;
+    if (!snapshot.exists()) {
 
-    userDocRef = snapshot.docs[0].ref;
+        alert("User profile not found.");
 
-    const data = snapshot.docs[0].data();
+        return;
+
+    }
+
+    const data = snapshot.data();
 
     usernameInput.value = data.username || "";
     emailInput.value = data.email || "";

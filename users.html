@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Management | Safety First</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/users.css">
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="logo">
+
+        🛡️ <span>Safety First</span>
+
+    </div>
+
+    <div class="user-area">
+
+        <span id="adminName"></span>
+
+        <button id="logoutBtn">
+
+            Logout
+
+        </button>
+
+    </div>
+
+</header>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <h2>MENU</h2>
+
+        <ul>
+
+            <li onclick="window.location.href='dashboard.html'">
+
+                🏠 Dashboard
+
+            </li>
+
+            <li onclick="window.location.href='announcement.html'">
+
+                📢 Announcements
+
+            </li>
+
+            <li onclick="window.location.href='profile.html'">
+
+                👤 Profile
+
+            </li>
+
+            <li onclick="window.location.href='admin.html'">
+
+                ⚙ Admin
+
+            </li>
+
+            <li class="active">
+
+                👥 User Management
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <main class="content">
+
+        <div class="card">
+
+            <h2>
+
+                👥 User Management
+
+            </h2>
+
+            <br>
+
+            <div id="usersTable">
+
+                Loading users...
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script type="module" src="js/pages/users.js"></script>
+
+</body>
+
+</html>

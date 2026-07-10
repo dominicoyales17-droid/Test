@@ -1,0 +1,66 @@
+.card{
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:25px;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+th,
+td{
+
+    padding:14px;
+
+    border-bottom:1px solid #ddd;
+
+    text-align:left;
+
+}
+
+th{
+
+    background:#2563EB;
+
+    color:white;
+
+}
+
+select{
+
+    padding:8px;
+
+    border-radius:6px;
+
+}
+
+button.saveRole{
+
+    padding:8px 14px;
+
+    border:none;
+
+    border-radius:6px;
+
+    background:#16A34A;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+button.saveRole:hover{
+
+    background:#15803D;
+
+}

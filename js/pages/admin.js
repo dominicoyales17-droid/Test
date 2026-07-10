@@ -7,7 +7,9 @@ import {
 
 import {
     addAnnouncement,
-    getAnnouncements
+    getAnnouncements,
+    updateAnnouncement,
+    deleteAnnouncement
 } from "../services/announcementService.js";
 
 // ======================
@@ -23,11 +25,12 @@ const priorityInput = document.getElementById("priority");
 
 const postBtn = document.getElementById("postBtn");
 
-const recentAnnouncements =
-document.getElementById("recentAnnouncements");
+const recentAnnouncements = document.getElementById("recentAnnouncements");
+
+let editingAnnouncementId = null;
 
 // ======================
-// Auth
+// Authentication
 // ======================
 
 onAuthStateChanged(auth, (user) => {
@@ -35,12 +38,13 @@ onAuthStateChanged(auth, (user) => {
     if (!user) {
 
         window.location.href = "login.html";
-
         return;
 
     }
 
     adminName.textContent = user.email;
+
+    loadAnnouncements();
 
 });
 
@@ -57,15 +61,13 @@ logoutBtn.addEventListener("click", async () => {
 });
 
 // ======================
-// Post Announcement
+// Post / Update
 // ======================
 
 postBtn.addEventListener("click", async () => {
 
     const title = titleInput.value.trim();
-
     const message = messageInput.value.trim();
-
     const priority = priorityInput.value;
 
     if (!title || !message) {
@@ -76,30 +78,61 @@ postBtn.addEventListener("click", async () => {
 
     }
 
-    await addAnnouncement({
+    try {
 
-        title,
+        if (editingAnnouncementId) {
 
-        message,
+            await updateAnnouncement(editingAnnouncementId, {
 
-        priority,
+                title,
+                message,
+                priority
 
-        postedBy: auth.currentUser.email
+            });
 
-    });
+            alert("✅ Announcement updated!");
 
-    titleInput.value = "";
+            editingAnnouncementId = null;
 
-    messageInput.value = "";
+            postBtn.innerHTML = "📢 Post Announcement";
 
-    priorityInput.value = "General";
+        }
 
-    loadAnnouncements();
+        else {
+
+            await addAnnouncement({
+
+                title,
+                message,
+                priority,
+                postedBy: auth.currentUser.email
+
+            });
+
+            alert("✅ Announcement posted!");
+
+        }
+
+        titleInput.value = "";
+        messageInput.value = "";
+        priorityInput.value = "General";
+
+        loadAnnouncements();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert(error.message);
+
+    }
 
 });
 
 // ======================
-// Recent Announcements
+// Load Announcements
 // ======================
 
 async function loadAnnouncements() {
@@ -108,8 +141,7 @@ async function loadAnnouncements() {
 
     if (announcements.length === 0) {
 
-        recentAnnouncements.innerHTML =
-        "No announcements yet.";
+        recentAnnouncements.innerHTML = "No announcements yet.";
 
         return;
 
@@ -154,7 +186,7 @@ async function loadAnnouncements() {
 
                 <small>
 
-                    ${item.postedBy}
+                    Posted by ${item.postedBy}
 
                     <br>
 
@@ -162,12 +194,94 @@ async function loadAnnouncements() {
 
                 </small>
 
+                <br><br>
+
+                <button class="editBtn" data-id="${item.id}">
+
+                    ✏ Edit
+
+                </button>
+
+                <button class="deleteBtn" data-id="${item.id}">
+
+                    🗑 Delete
+
+                </button>
+
             </div>
 
         `;
 
     });
 
-}
+    // ======================
+    // Edit Buttons
+    // ======================
 
-loadAnnouncements();
+    document.querySelectorAll(".editBtn").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const announcement = announcements.find(
+
+                item => item.id === button.dataset.id
+
+            );
+
+            if (!announcement) return;
+
+            editingAnnouncementId = announcement.id;
+
+            titleInput.value = announcement.title;
+            messageInput.value = announcement.message;
+            priorityInput.value = announcement.priority;
+
+            postBtn.innerHTML = "💾 Update Announcement";
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        });
+
+    });
+
+    // ======================
+    // Delete Buttons
+    // ======================
+
+    document.querySelectorAll(".deleteBtn").forEach(button => {
+
+        button.addEventListener("click", async () => {
+
+            const confirmed = confirm("Delete this announcement?");
+
+            if (!confirmed) return;
+
+            try {
+
+                await deleteAnnouncement(button.dataset.id);
+
+                alert("✅ Announcement deleted!");
+
+                loadAnnouncements();
+
+            }
+
+            catch (error) {
+
+                console.error(error);
+
+                alert(error.message);
+
+            }
+
+        });
+
+    });
+
+}

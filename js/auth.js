@@ -10,7 +10,8 @@ import {
     query,
     where,
     getDocs,
-    addDoc
+    doc,
+    setDoc
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 
@@ -56,13 +57,17 @@ if (signupBtn) {
                 );
 
             await setDoc(doc(db, "users", userCredential.user.uid), {
-                
+
+                uid: userCredential.user.uid,
+
                 username: username,
-                
+
                 email: email,
-                
-                role: "student"
-            
+
+                role: "Student",
+
+                bio: ""
+
             });
 
             alert("Account created successfully!");

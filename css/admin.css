@@ -129,3 +129,50 @@ textarea{
     margin-bottom:10px;
 
 }
+
+.editBtn,
+.deleteBtn{
+
+    border:none;
+
+    padding:10px 16px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    margin-right:10px;
+
+    font-size:14px;
+
+    transition:.3s;
+
+}
+
+.editBtn{
+
+    background:#2563EB;
+
+    color:white;
+
+}
+
+.editBtn:hover{
+
+    background:#1D4ED8;
+
+}
+
+.deleteBtn{
+
+    background:#DC2626;
+
+    color:white;
+
+}
+
+.deleteBtn:hover{
+
+    background:#B91C1C;
+
+}
