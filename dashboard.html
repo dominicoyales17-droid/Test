@@ -11,244 +11,276 @@
 
     <link rel="stylesheet" href="css/style.css">
 
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 
 <body>
 
-    <!-- ========================= -->
-    <!-- TOP NAVIGATION BAR -->
-    <!-- ========================= -->
+<header class="topbar">
 
-    <header class="topbar">
+    <div class="logo">
 
-        <div class="logo">
+        <img src="images/logo.png" alt="Logo">
 
-            🛡️ <span>Safety First</span>
+        <span>Safety First</span>
 
-        </div>
+    </div>
 
-        <div class="user-area">
+    <div class="topbar-right">
 
-            <!-- Notification Bell -->
+        <div class="notification-container">
 
-            <div class="notification-container">
+            <button id="notificationBell" class="bell">
 
-                <button id="notificationBell" class="bell">
+                <i class="fa-solid fa-bell"></i>
 
-                    🔔
+                <span id="notificationCount">0</span>
 
-                    <span id="notificationCount">
+            </button>
 
-                        0
+            <div id="notificationPanel" class="notification-panel">
 
-                    </span>
+                <h3>Notifications</h3>
 
-                </button>
+                <div id="notificationList">
 
-                <div id="notificationPanel" class="notification-panel">
-
-                    <h3>
-
-                        Notifications
-
-                    </h3>
-
-                    <div id="notificationList">
-
-                        No notifications.
-
-                    </div>
+                    No notifications.
 
                 </div>
 
             </div>
 
-            <span id="welcomeUser">
-
-                Welcome
-
-            </span>
-
-            <button id="logoutBtn">
-
-                Sign Out
-
-            </button>
-
         </div>
 
-    </header>
+        <span id="welcomeUser">
 
-    <!-- ========================= -->
-    <!-- DASHBOARD -->
-    <!-- ========================= -->
+            Welcome
 
-    <div class="dashboard">
+        </span>
 
-        <!-- Sidebar -->
+        <button id="logoutBtn" class="logout-btn">
 
-        <aside class="sidebar">
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Sign Out
+
+        </button>
+
+    </div>
+
+</header>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <h2>MENU</h2>
+
+        <ul>
+
+            <li class="active">
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </li>
+
+            <li>
+
+                <i class="fa-solid fa-bullhorn"></i>
+
+                Announcements
+
+            </li>
+
+            <li>
+
+                <i class="fa-solid fa-book"></i>
+
+                Safety Guides
+
+            </li>
+
+            <li>
+
+                <i class="fa-solid fa-phone"></i>
+
+                Emergency Contacts
+
+            </li>
+
+            <li onclick="window.location.href='profile.html'">
+
+                <i class="fa-solid fa-user"></i>
+
+                Profile
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <main class="content">
+
+        <section class="hero-card">
+
+            <div>
+
+                <h1 id="greeting">
+
+                    Welcome!
+
+                </h1>
+
+                <p id="currentDate">
+
+                Loading date...
+
+                </p>
+
+                <p id="usernameDisplay">
+
+                Loading user...
+
+                </p>
+
+            </div>
+
+        </section>
+
+<div class="stats-grid">
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-bullhorn"></i>
+
+        <h3 id="announcementCount">0</h3>
+
+        <p>Announcements</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-bell"></i>
+
+        <h3 id="notificationCountCard">0</h3>
+
+        <p>Notifications</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-book"></i>
+
+        <h3>8</h3>
+
+        <p>Safety Guides</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-phone"></i>
+
+        <h3>4</h3>
+
+        <p>Emergency Contacts</p>
+
+    </div>
+
+</div>
+
+<div class="card recent-activity">
+
+    <h2>
+
+        <i class="fa-solid fa-clock-rotate-left"></i>
+
+        Recent Activity
+
+    </h2>
+
+    <div id="recentActivity">
+
+        Loading activity...
+
+    </div>
+
+</div>
+
+        <div class="card">
 
             <h2>
 
-                MENU
+                <i class="fa-solid fa-bullhorn"></i>
+
+                Latest Announcement
+
+            </h2>
+
+            <div id="announcement">
+
+                Loading latest announcement...
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>
+
+                <i class="fa-solid fa-bell"></i>
+
+                Notification Center
+
+            </h2>
+
+            <div>
+
+                Waiting for notifications...
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                Emergency Contacts
 
             </h2>
 
             <ul>
 
-                <li class="active">
+                <li>🚓 Police — 911</li>
 
-                    🏠 Dashboard
+                <li>🚒 Fire Department — 911</li>
 
-                </li>
+                <li>🚑 Ambulance — 911</li>
 
-                <li>
-
-                    📢 Announcements
-
-                </li>
-
-                <li>
-
-                    🔔 Notifications
-
-                </li>
-
-                <li>
-
-                    📚 Safety Guides
-
-                </li>
-
-                <li>
-
-                    🚨 Emergency Contacts
-
-                </li>
-
-                <li>
-
-                    👤 My Profile
-
-                </li>
+                <li>🏫 School Office</li>
 
             </ul>
 
-        </aside>
+        </div>
 
-        <!-- Main Content -->
+    </main>
 
-        <main class="content">
+</div>
 
-            <!-- Welcome -->
+<script type="module" src="js/pages/dashboard.js"></script>
 
-            <div class="card">
-
-                <h2>
-
-                    Welcome Back!
-
-                </h2>
-
-                <div id="usernameDisplay">
-
-                    Loading...
-
-                </div>
-
-            </div>
-
-            <!-- Latest Announcement -->
-
-            <div class="card">
-
-                <h2>
-
-                    📢 Latest Announcement
-
-                </h2>
-
-                <div id="announcement">
-
-                    Loading latest announcement...
-
-                </div>
-
-            </div>
-
-            <!-- Notification Preview -->
-
-            <div class="card">
-
-                <h2>
-
-                    🔔 Notification Center
-
-                </h2>
-
-                <div id="latestNotification">
-
-                    Waiting for notifications...
-
-                </div>
-
-            </div>
-
-            <!-- Emergency Contacts -->
-
-            <div class="card">
-
-                <h2>
-
-                    🚨 Emergency Contacts
-
-                </h2>
-
-                <ul>
-
-                    <li>
-
-                        🚓 Police — 911
-
-                    </li>
-
-                    <li>
-
-                        🚒 Fire Department — 911
-
-                    </li>
-
-                    <li>
-
-                        🚑 Ambulance — 911
-
-                    </li>
-
-                    <li>
-
-                        ☎ School Office
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </main>
-
-    </div>
-
-    <!-- Toast Notification -->
-
-    <div id="toastContainer">
-
-    </div>
-
-    <!-- Scripts -->
-
-    <script type="module" src="js/dashboard.js"></script>
-    <script type="module" src="js/notifications.js"></script>
+<script type="module" src="js/components/notifications.js"></script>
 
 </body>
 

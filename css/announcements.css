@@ -1,0 +1,115 @@
+/* ===========================
+   Announcements Page
+=========================== */
+
+.page-title{
+
+    font-size:32px;
+
+    color:#1E3A5F;
+
+    margin-bottom:25px;
+
+}
+
+.search-box{
+
+    width:100%;
+
+    padding:14px 18px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    margin-bottom:30px;
+
+    transition:.3s;
+
+}
+
+.search-box:focus{
+
+    outline:none;
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+
+}
+
+#announcementList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.announcement-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+    transition:.25s;
+
+}
+
+.announcement-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 24px rgba(0,0,0,.12);
+
+}
+
+.priority-badge{
+
+    display:inline-block;
+
+    color:white;
+
+    padding:6px 14px;
+
+    border-radius:50px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+}
+
+.announcement-card h2{
+
+    color:#1E3A5F;
+
+    margin-bottom:12px;
+
+}
+
+.announcement-card p{
+
+    color:#555;
+
+    line-height:1.6;
+
+    margin-bottom:20px;
+
+}
+
+.announcement-card small{
+
+    color:#777;
+
+}

@@ -1,0 +1,178 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:linear-gradient(135deg,#1E3A5F,#2563EB);
+
+    min-height:100vh;
+
+}
+
+/* Center Login */
+
+.auth-container{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+}
+
+/* Login Card */
+
+.auth-card{
+
+    background:white;
+
+    width:420px;
+
+    max-width:100%;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+
+}
+
+/* Logo */
+
+.logo{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.logo img{
+
+    width:90px;
+
+}
+
+.logo h1{
+
+    color:#1E3A5F;
+
+    margin-top:15px;
+
+    font-size:32px;
+
+}
+
+.logo p{
+
+    color:#6B7280;
+
+}
+
+/* Form */
+
+.form-group{
+
+    margin-top:20px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#1E3A5F;
+
+    font-weight:600;
+
+}
+
+.form-group input{
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    border:1px solid #D6E4F0;
+
+    font-size:16px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.form-group input:focus{
+
+    border-color:#2563EB;
+
+}
+
+/* Button */
+
+.primary-btn{
+
+    width:100%;
+
+    margin-top:30px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2563EB;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.primary-btn:hover{
+
+    background:#1E40AF;
+
+    transform:translateY(-2px);
+
+}
+
+/* Bottom Link */
+
+.auth-footer{
+
+    margin-top:25px;
+
+    text-align:center;
+
+}
+
+.auth-footer a{
+
+    color:#2563EB;
+
+    font-weight:600;
+
+}

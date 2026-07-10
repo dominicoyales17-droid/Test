@@ -1,0 +1,131 @@
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width: 992px){
+
+    .dashboard{
+
+        flex-direction:column;
+
+    }
+
+    .sidebar{
+
+        width:100%;
+
+        border-right:none;
+
+        border-bottom:1px solid #ddd;
+
+    }
+
+    .sidebar ul{
+
+        display:flex;
+
+        flex-wrap:wrap;
+
+        gap:10px;
+
+    }
+
+    .sidebar li{
+
+        margin-bottom:0;
+
+    }
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width:768px){
+
+    .topbar{
+
+        flex-direction:column;
+
+        height:auto;
+
+        padding:15px;
+
+        gap:15px;
+
+    }
+
+    .topbar-right{
+
+        width:100%;
+
+        justify-content:space-between;
+
+    }
+
+    .content{
+
+        grid-template-columns:1fr;
+
+        padding:20px;
+
+    }
+
+    .sidebar{
+
+        padding:20px;
+
+    }
+
+    .notification-panel{
+
+        width:90vw;
+
+        right:-20px;
+
+    }
+
+    .logo span{
+
+        font-size:22px;
+
+    }
+
+}
+
+/* ===========================
+   Small Phones
+=========================== */
+
+@media (max-width:480px){
+
+    .card{
+
+        padding:18px;
+
+    }
+
+    .logout-btn{
+
+        padding:8px 14px;
+
+        font-size:14px;
+
+    }
+
+    .logo img{
+
+        width:34px;
+
+        height:34px;
+
+    }
+
+    .logo span{
+
+        font-size:18px;
+
+    }
+
+}

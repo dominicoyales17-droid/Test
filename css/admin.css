@@ -1,0 +1,131 @@
+/* ===========================
+   Admin Page
+=========================== */
+
+.content{
+
+    padding:35px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.card h2{
+
+    color:#1E3A5F;
+
+    margin-bottom:10px;
+
+}
+
+input,
+textarea,
+select{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    box-sizing:border-box;
+
+    transition:.3s;
+
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+
+    outline:none;
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+
+}
+
+textarea{
+
+    resize:vertical;
+
+}
+
+#postBtn{
+
+    background:#2563EB;
+
+    color:white;
+
+    border:none;
+
+    padding:14px 22px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+#postBtn:hover{
+
+    background:#1D4ED8;
+
+}
+
+.announcement-item{
+
+    padding:18px;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:12px;
+
+    margin-bottom:15px;
+
+    transition:.3s;
+
+}
+
+.announcement-item:hover{
+
+    background:#f8fafc;
+
+}
+
+.priority{
+
+    display:inline-block;
+
+    color:white;
+
+    padding:5px 12px;
+
+    border-radius:50px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+}

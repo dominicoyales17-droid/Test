@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Announcements | Safety First</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/announcements.css">
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="logo">
+
+        🛡️ <span>Safety First</span>
+
+    </div>
+
+    <div class="user-area">
+
+        <button onclick="window.location.href='dashboard.html'">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Dashboard
+
+        </button>
+
+    </div>
+
+</header>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <h2>MENU</h2>
+
+        <ul>
+
+            <li onclick="window.location.href='dashboard.html'">
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </li>
+
+            <li class="active">
+
+                <i class="fa-solid fa-bullhorn"></i>
+
+                Announcements
+
+            </li>
+
+            <li onclick="window.location.href='profile.html'">
+
+                <i class="fa-solid fa-user"></i>
+
+                My Profile
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <main class="content">
+
+        <div class="card">
+
+            <h1 class="page-title">
+
+                <i class="fa-solid fa-bullhorn"></i>
+
+                Announcements
+
+            </h1>
+
+            <input
+                type="text"
+                id="searchAnnouncement"
+                class="search-box"
+                placeholder="🔍 Search announcements..."
+            >
+
+            <br><br>
+
+            <div id="announcementList">
+
+                Loading announcements...
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script type="module"
+src="js/pages/announcements.js"></script>
+
+</body>
+
+</html>

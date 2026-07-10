@@ -2,11 +2,20 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safety First Admin</title>
+
+    <title>Admin Dashboard | Safety First</title>
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/admin.css">
+
 </head>
 
 <body>
@@ -14,15 +23,23 @@
 <header class="topbar">
 
     <div class="logo">
-        🛡 <span>Safety First</span>
+
+        🛡️ <span>Safety First</span>
+
     </div>
 
     <div class="user-area">
-        <span id="welcomeUser">Admin</span>
+
+        <span id="adminName">Administrator</span>
 
         <button id="logoutBtn">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
             Sign Out
+
         </button>
+
     </div>
 
 </header>
@@ -31,19 +48,49 @@
 
     <aside class="sidebar">
 
-        <h2>Admin Menu</h2>
+        <h2>ADMIN MENU</h2>
 
         <ul>
 
-            <li class="active">🏠 Dashboard</li>
+            <li onclick="location.href='dashboard.html'">
 
-            <li>📢 Announcements</li>
+                <i class="fa-solid fa-house"></i>
 
-            <li>👥 Users</li>
+                Dashboard
 
-            <li>📊 Reports</li>
+            </li>
 
-            <li>⚙ Settings</li>
+            <li class="active">
+
+                <i class="fa-solid fa-bullhorn"></i>
+
+                Announcements
+
+            </li>
+
+            <li>
+
+                <i class="fa-solid fa-users"></i>
+
+                Users
+
+            </li>
+
+            <li>
+
+                <i class="fa-solid fa-chart-column"></i>
+
+                Reports
+
+            </li>
+
+            <li>
+
+                <i class="fa-solid fa-gear"></i>
+
+                Settings
+
+            </li>
 
         </ul>
 
@@ -51,14 +98,24 @@
 
     <main class="content">
 
+        <!-- Create Announcement -->
+
         <div class="card">
 
-            <h2>📢 Create Announcement</h2>
+            <h2>
+
+                <i class="fa-solid fa-bullhorn"></i>
+
+                Create Announcement
+
+            </h2>
+
+            <br>
 
             <input
-                type="text"
                 id="title"
-                placeholder="Announcement Title"
+                type="text"
+                placeholder="Announcement title"
             >
 
             <br><br>
@@ -73,9 +130,11 @@
 
             <select id="priority">
 
-                <option value="Normal">🟢 Normal</option>
-                <option value="Important">🟠 Important</option>
-                <option value="Emergency">🔴 Emergency</option>
+                <option>General</option>
+
+                <option>Important</option>
+
+                <option>Emergency</option>
 
             </select>
 
@@ -83,19 +142,33 @@
 
             <button id="postBtn">
 
+                <i class="fa-solid fa-paper-plane"></i>
+
                 Post Announcement
 
             </button>
 
         </div>
 
+        <br>
+
+        <!-- Recent Announcements -->
+
         <div class="card">
 
-            <h2>📢 Recent Announcements</h2>
+            <h2>
 
-            <div id="announcementList">
+                <i class="fa-solid fa-clock-rotate-left"></i>
 
-                No announcements yet.
+                Recent Announcements
+
+            </h2>
+
+            <br>
+
+            <div id="recentAnnouncements">
+
+                Loading...
 
             </div>
 
@@ -105,7 +178,8 @@
 
 </div>
 
-<script type="module" src="js/admin.js"></script>
+<script type="module" src="js/pages/admin.js"></script>
 
 </body>
+
 </html>
