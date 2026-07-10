@@ -1,120 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Safety First Dashboard</title>
 
     <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
 
-<header class="topbar">
+    <!-- ========================= -->
+    <!-- TOP NAVIGATION BAR -->
+    <!-- ========================= -->
 
-    <div class="logo">
-        🛡 <span>Safety First</span>
-    </div>
+    <header class="topbar">
 
-    <div class="user-area">
-        <span id="welcomeUser">Welcome!</span>
+        <div class="logo">
 
-        <button id="logoutBtn">Sign Out</button>
-    </div>
-
-</header>
-
-
-<div class="dashboard">
-
-    <aside class="sidebar">
-
-        <h2>Menu</h2>
-
-        <ul>
-
-            <li class="active">🏠 Dashboard</li>
-
-            <li>📢 Announcements</li>
-
-            <li>🔔 Notifications</li>
-
-            <li>🚨 Safety Guides</li>
-
-            <li>📞 Emergency Contacts</li>
-
-            <li>👤 Profile</li>
-
-        </ul>
-
-    </aside>
-
-
-
-    <main class="content">
-
-        <div class="card">
-
-            <h2>Welcome Back!</h2>
-
-            <p id="usernameDisplay">
-
-                Loading...
-
-            </p>
+            🛡️ <span>Safety First</span>
 
         </div>
 
+        <div class="user-area">
 
+            <!-- Notification Bell -->
 
-        <<div class="card">
+            <div class="notification-container">
 
-            <h2>📢 Latest Announcement</h2>
+                <button id="notificationBell" class="bell">
 
-            <div id="announcement">
+                    🔔
 
-                Loading announcement...
+                    <span id="notificationCount">
+
+                        0
+
+                    </span>
+
+                </button>
+
+                <div id="notificationPanel" class="notification-panel">
+
+                    <h3>
+
+                        Notifications
+
+                    </h3>
+
+                    <div id="notificationList">
+
+                        No notifications.
+
+                    </div>
+
+                </div>
 
             </div>
 
+            <span id="welcomeUser">
+
+                Welcome
+
+            </span>
+
+            <button id="logoutBtn">
+
+                Sign Out
+
+            </button>
+
         </div>
 
-        <div class="card">
+    </header>
 
-            <h2>🔔 Notifications</h2>
+    <!-- ========================= -->
+    <!-- DASHBOARD -->
+    <!-- ========================= -->
 
-            <div>
+    <div class="dashboard">
 
-                No new notifications.
+        <!-- Sidebar -->
 
-            </div>
+        <aside class="sidebar">
 
-        </div>
+            <h2>
 
+                MENU
 
-
-        <div class="card">
-
-            <h2>🚨 Emergency Contacts</h2>
+            </h2>
 
             <ul>
 
-                <li>🚓 Police - 911</li>
+                <li class="active">
 
-                <li>🚒 Fire - 911</li>
+                    🏠 Dashboard
 
-                <li>🚑 Ambulance - 911</li>
+                </li>
 
-                <li>☎ School Office</li>
+                <li>
+
+                    📢 Announcements
+
+                </li>
+
+                <li>
+
+                    🔔 Notifications
+
+                </li>
+
+                <li>
+
+                    📚 Safety Guides
+
+                </li>
+
+                <li>
+
+                    🚨 Emergency Contacts
+
+                </li>
+
+                <li>
+
+                    👤 My Profile
+
+                </li>
 
             </ul>
 
-        </div>
+        </aside>
 
-    </main>
+        <!-- Main Content -->
 
-</div>
+        <main class="content">
 
-<script type="module" src="js/dashboard.js"></script>
+            <!-- Welcome -->
+
+            <div class="card">
+
+                <h2>
+
+                    Welcome Back!
+
+                </h2>
+
+                <div id="usernameDisplay">
+
+                    Loading...
+
+                </div>
+
+            </div>
+
+            <!-- Latest Announcement -->
+
+            <div class="card">
+
+                <h2>
+
+                    📢 Latest Announcement
+
+                </h2>
+
+                <div id="announcement">
+
+                    Loading latest announcement...
+
+                </div>
+
+            </div>
+
+            <!-- Notification Preview -->
+
+            <div class="card">
+
+                <h2>
+
+                    🔔 Notification Center
+
+                </h2>
+
+                <div id="latestNotification">
+
+                    Waiting for notifications...
+
+                </div>
+
+            </div>
+
+            <!-- Emergency Contacts -->
+
+            <div class="card">
+
+                <h2>
+
+                    🚨 Emergency Contacts
+
+                </h2>
+
+                <ul>
+
+                    <li>
+
+                        🚓 Police — 911
+
+                    </li>
+
+                    <li>
+
+                        🚒 Fire Department — 911
+
+                    </li>
+
+                    <li>
+
+                        🚑 Ambulance — 911
+
+                    </li>
+
+                    <li>
+
+                        ☎ School Office
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- Toast Notification -->
+
+    <div id="toastContainer">
+
+    </div>
+
+    <!-- Scripts -->
+
+    <script type="module" src="js/dashboard.js"></script>
+    <script type="module" src="js/notifications.js"></script>
 
 </body>
+
 </html>
