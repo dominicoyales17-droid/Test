@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/users.css">
 
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
 </head>
 
 <body>
@@ -20,7 +23,9 @@
 
     <div class="logo">
 
-        🛡️ <span>Safety First</span>
+        <img src="images/logo.png" class="logo-img">
+
+        <span>Safety First</span>
 
     </div>
 
@@ -28,9 +33,11 @@
 
         <span id="adminName"></span>
 
-        <button id="logoutBtn">
+        <button id="logoutBtn" class="btn-primary">
 
-            Logout
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Sign Out
 
         </button>
 
@@ -42,37 +49,47 @@
 
     <aside class="sidebar">
 
-        <h2>MENU</h2>
+        <h2>ADMIN MENU</h2>
 
         <ul>
 
-            <li onclick="window.location.href='dashboard.html'">
+            <li onclick="window.location.href='admin.html'">
 
-                🏠 Dashboard
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
 
             </li>
 
             <li onclick="window.location.href='announcement.html'">
 
-                📢 Announcements
+                <i class="fa-solid fa-bullhorn"></i>
 
-            </li>
-
-            <li onclick="window.location.href='profile.html'">
-
-                👤 Profile
-
-            </li>
-
-            <li onclick="window.location.href='admin.html'">
-
-                ⚙ Admin
+                Announcements
 
             </li>
 
             <li class="active">
 
-                👥 User Management
+                <i class="fa-solid fa-users"></i>
+
+                User Management
+
+            </li>
+
+            <li onclick="window.location.href='reports.html'">
+
+                <i class="fa-solid fa-chart-column"></i>
+
+                Reports
+
+            </li>
+
+            <li onclick="window.location.href='settings.html'">
+
+                <i class="fa-solid fa-gear"></i>
+
+                Settings
 
             </li>
 
@@ -86,7 +103,9 @@
 
             <h2>
 
-                👥 User Management
+                <i class="fa-solid fa-users"></i>
+
+                User Management
 
             </h2>
 

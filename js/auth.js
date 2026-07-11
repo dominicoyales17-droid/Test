@@ -6,14 +6,14 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
 import {
+    doc,
+    getDoc,
     collection,
     query,
     where,
     getDocs,
-    doc,
     setDoc
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
-
 
 // =======================
 // SIGN UP
@@ -64,7 +64,7 @@ if (signupBtn) {
 
                 email: email,
 
-                role: "Student",
+                role: "student",
 
                 bio: ""
 
@@ -84,8 +84,6 @@ if (signupBtn) {
 
 }
 
-
-
 // =======================
 // LOGIN
 // =======================
@@ -104,17 +102,45 @@ if (loginBtn) {
 
         try {
 
-            await signInWithEmailAndPassword(
+            const userCredential = await signInWithEmailAndPassword(
                 auth,
                 email,
                 password
             );
 
-            window.location.href = "dashboard.html";
+            const userDoc = await getDoc(
+                doc(db, "users", userCredential.user.uid)
+            );
 
-        }
+            if (!userDoc.exists()) {
 
-        catch (error) {
+                alert("User record not found.");
+
+                return;
+
+            }
+
+            const userData = userDoc.data();
+
+            console.log("Role:", userData.role);
+
+            if (userData.role === "admin") {
+
+                console.log("Redirecting to Admin Dashboard");
+
+                window.location.href = "admin-dashboard.html";
+
+            } else {
+
+                console.log("Redirecting to Student Dashboard");
+
+                window.location.href = "dashboard.html";
+
+            }
+
+        } catch (error) {
+
+            console.error(error);
 
             alert("Incorrect email or password.");
 

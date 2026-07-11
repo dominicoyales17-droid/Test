@@ -25,17 +25,49 @@
 
     <div class="logo">
 
-        🛡️ <span>Safety First</span>
+        <img src="images/logo.png" alt="Logo">
+
+        <span>Safety First</span>
 
     </div>
 
-    <div class="user-area">
+    <div class="topbar-right">
 
-        <button onclick="window.location.href='dashboard.html'">
+        <div class="notification-container">
 
-            <i class="fa-solid fa-arrow-left"></i>
+            <button id="notificationBell" class="bell">
 
-            Dashboard
+                <i class="fa-solid fa-bell"></i>
+
+                <span id="notificationCount">0</span>
+
+            </button>
+
+            <div id="notificationPanel" class="notification-panel">
+
+                <h3>Notifications</h3>
+
+                <div id="notificationList">
+
+                    No notifications.
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <span id="welcomeUser">
+
+            Welcome
+
+        </span>
+
+        <button id="logoutBtn" class="logout-btn">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Sign Out
 
         </button>
 
@@ -67,11 +99,27 @@
 
             </li>
 
+            <li onclick="window.location.href='guides.html'">
+
+                <i class="fa-solid fa-book"></i>
+
+                Safety Guides
+
+            </li>
+
+            <li onclick="window.location.href='contacts.html'">
+
+                <i class="fa-solid fa-phone"></i>
+
+                Emergency Contacts
+
+            </li>
+
             <li onclick="window.location.href='profile.html'">
 
                 <i class="fa-solid fa-user"></i>
 
-                My Profile
+                Profile
 
             </li>
 
@@ -116,5 +164,9 @@
 src="js/pages/announcements.js"></script>
 
 </body>
+
+<script type="module" src="js/pages/announcements.js"></script>
+
+<script type="module" src="js/components/notifications.js"></script>
 
 </html>

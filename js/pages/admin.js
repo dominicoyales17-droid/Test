@@ -1,5 +1,7 @@
 import { auth } from "../firebase.js";
 
+import { protectAdminPage } from "../components/adminGuard.js";
+
 import {
     onAuthStateChanged,
     signOut
@@ -28,6 +30,8 @@ const postBtn = document.getElementById("postBtn");
 const recentAnnouncements = document.getElementById("recentAnnouncements");
 
 let editingAnnouncementId = null;
+
+protectAdminPage();
 
 // ======================
 // Authentication

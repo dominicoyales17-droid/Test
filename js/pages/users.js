@@ -1,5 +1,7 @@
 import { auth, db } from "../firebase.js";
 
+import { protectAdminPage } from "../components/adminGuard.js";
+
 import {
     onAuthStateChanged,
     signOut
@@ -19,6 +21,8 @@ import {
 const adminName = document.getElementById("adminName");
 const logoutBtn = document.getElementById("logoutBtn");
 const usersTable = document.getElementById("usersTable");
+
+protectAdminPage();
 
 // =====================
 // Check Login
@@ -92,22 +96,19 @@ async function loadUsers() {
 
                 <td>
 
-                    <select id="role-${document.id}">
+                    <select
+                        id="role-${document.id}"
+                        ${auth.currentUser.uid === document.id ? "disabled" : ""}
+                    >
 
-                        <option value="Student"
-
-                        ${user.role === "Student" ? "selected" : ""}>
-
+                        <option value="student"
+                        ${user.role === "student" ? "selected" : ""}>
                         Student
-
                         </option>
 
-                        <option value="Admin"
-
-                        ${user.role === "Admin" ? "selected" : ""}>
-
+                        <option value="admin"
+                        ${user.role === "admin" ? "selected" : ""}>
                         Admin
-
                         </option>
 
                     </select>
@@ -116,14 +117,19 @@ async function loadUsers() {
 
                 <td>
 
-                    <button
-                        class="saveRole"
-                        data-id="${document.id}"
-                    >
+                    ${
+                        auth.currentUser.uid === document.id
 
-                        Save
+                        ? `<span style="color:gray;font-weight:bold;">
+                            Current User
+                        </span>`
 
-                    </button>
+                        : `<button
+                            class="saveRole"
+                            data-id="${document.id}">
+                            Save
+                        </button>`
+                    }
 
                 </td>
 
@@ -148,18 +154,13 @@ async function loadUsers() {
             const id = button.dataset.id;
 
             const newRole =
-            document.getElementById(`role-${id}`).value;
+            document.getElementById(`role-${id}`).value.toLowerCase();
 
             await updateDoc(
-
                 doc(db, "users", id),
-
                 {
-
                     role: newRole
-
                 }
-
             );
 
             alert("✅ Role updated!");
