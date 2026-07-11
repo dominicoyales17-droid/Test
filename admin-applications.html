@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Administrator Applications | Safety First</title>
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="logo">
+
+        <img src="images/logo.png" alt="Logo">
+
+        <span>Safety First</span>
+
+    </div>
+
+    <div class="user-area">
+
+        <span id="adminName"></span>
+
+        <button id="logoutBtn">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Sign Out
+
+        </button>
+
+    </div>
+
+</header>
+
+<div class="dashboard">
+
+    <aside class="sidebar"></aside>
+
+    <main class="content">
+
+        <div class="card">
+
+            <h2>
+
+                <i class="fa-solid fa-user-shield"></i>
+
+                Pending Administrator Applications
+
+            </h2>
+
+            <br>
+
+            <div id="applicationsContainer">
+
+                Loading applications...
+                
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script type="module" src="js/pages/admin-applications.js"></script>
+
+<script type="module">
+
+import { loadAdminSidebar }
+from "./js/components/adminSidebar.js";
+
+loadAdminSidebar("applications");
+
+</script>
+
+</body>
+
+</html>

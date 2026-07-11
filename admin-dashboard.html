@@ -48,60 +48,7 @@
 
 <div class="dashboard">
 
-<aside class="sidebar">
-
-<h2>ADMIN MENU</h2>
-
-<ul>
-
-<li class="active"
-onclick="location.href='admin-dashboard.html'">
-
-<i class="fa-solid fa-house"></i>
-
-Dashboard
-
-</li>
-
-<li
-onclick="location.href='admin-announcement.html'">
-
-<i class="fa-solid fa-bullhorn"></i>
-
-Announcements
-
-</li>
-
-<li
-onclick="location.href='users.html'">
-
-<i class="fa-solid fa-users"></i>
-
-User Management
-
-</li>
-
-<li
-onclick="location.href='reports.html'">
-
-<i class="fa-solid fa-chart-column"></i>
-
-Reports
-
-</li>
-
-<li
-onclick="location.href='settings.html'">
-
-<i class="fa-solid fa-gear"></i>
-
-Settings
-
-</li>
-
-</ul>
-
-</aside>
+<aside class="sidebar"></aside>
 
 <main class="content">
 
@@ -204,6 +151,15 @@ Quick Actions
 </div>
 
 <script type="module" src="js/pages/admin-dashboard.js"></script>
+
+<script type="module">
+
+import { loadAdminSidebar }
+from "./js/components/adminSidebar.js";
+
+loadAdminSidebar("dashboard");
+
+</script>
 
 </body>
 

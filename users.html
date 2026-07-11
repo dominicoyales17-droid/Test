@@ -3,17 +3,17 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>User Management | Safety First</title>
+<title>User Management | Safety First</title>
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/users.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/users.css">
 
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
 
@@ -21,109 +21,70 @@
 
 <header class="topbar">
 
-    <div class="logo">
+<div class="logo">
 
-        <img src="images/logo.png" class="logo-img">
+<img src="images/logo.png" class="logo-img">
 
-        <span>Safety First</span>
+<span>Safety First</span>
 
-    </div>
+</div>
 
-    <div class="user-area">
+<div class="user-area">
 
-        <span id="adminName"></span>
+<span id="adminName"></span>
 
-        <button id="logoutBtn" class="btn-primary">
+<button id="logoutBtn" class="btn-primary">
 
-            <i class="fa-solid fa-right-from-bracket"></i>
+<i class="fa-solid fa-right-from-bracket"></i>
 
-            Sign Out
+Sign Out
 
-        </button>
+</button>
 
-    </div>
+</div>
 
 </header>
 
 <div class="dashboard">
 
-    <aside class="sidebar">
+<aside class="sidebar"></aside>
 
-        <h2>ADMIN MENU</h2>
+<main class="content">
 
-        <ul>
+<div class="card">
 
-            <li onclick="window.location.href='admin.html'">
+<h2>
 
-                <i class="fa-solid fa-house"></i>
+<i class="fa-solid fa-users"></i>
 
-                Dashboard
+User Management
 
-            </li>
+</h2>
 
-            <li onclick="window.location.href='announcement.html'">
+<br>
 
-                <i class="fa-solid fa-bullhorn"></i>
+<div id="usersTable">
 
-                Announcements
+Loading users...
 
-            </li>
+</div>
 
-            <li class="active">
+</div>
 
-                <i class="fa-solid fa-users"></i>
-
-                User Management
-
-            </li>
-
-            <li onclick="window.location.href='reports.html'">
-
-                <i class="fa-solid fa-chart-column"></i>
-
-                Reports
-
-            </li>
-
-            <li onclick="window.location.href='settings.html'">
-
-                <i class="fa-solid fa-gear"></i>
-
-                Settings
-
-            </li>
-
-        </ul>
-
-    </aside>
-
-    <main class="content">
-
-        <div class="card">
-
-            <h2>
-
-                <i class="fa-solid fa-users"></i>
-
-                User Management
-
-            </h2>
-
-            <br>
-
-            <div id="usersTable">
-
-                Loading users...
-
-            </div>
-
-        </div>
-
-    </main>
+</main>
 
 </div>
 
 <script type="module" src="js/pages/users.js"></script>
+
+<script type="module">
+
+import { loadAdminSidebar }
+from "./js/components/adminSidebar.js";
+
+loadAdminSidebar("users");
+
+</script>
 
 </body>
 

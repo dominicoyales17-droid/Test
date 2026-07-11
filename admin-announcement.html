@@ -3,18 +3,18 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Admin Dashboard | Safety First</title>
+<title>Admin Announcements | Safety First</title>
 
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="stylesheet" href="css/admin.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/admin.css">
 
 </head>
 
@@ -22,148 +22,118 @@
 
 <header class="topbar">
 
-    <div class="logo">
+<div class="logo">
 
-        🛡️ <span>Safety First</span>
+<img src="images/logo.png" class="logo-img">
 
-    </div>
+<span>Safety First</span>
 
-    <div class="user-area">
+</div>
 
-        <span id="adminName">Administrator</span>
+<div class="user-area">
 
-        <button id="logoutBtn">
+<span id="adminName">Administrator</span>
 
-            <i class="fa-solid fa-right-from-bracket"></i>
+<button id="logoutBtn">
 
-            Sign Out
+<i class="fa-solid fa-right-from-bracket"></i>
 
-        </button>
+Sign Out
 
-    </div>
+</button>
+
+</div>
 
 </header>
 
 <div class="dashboard">
 
-    <aside class="sidebar">
+<aside class="sidebar"></aside>
 
-        <h2>ADMIN MENU</h2>
+<main class="content">
 
-        <ul>
+<div class="card">
 
-            <li onclick="location.href='admin-dashboard.html'">
-    <i class="fa-solid fa-house"></i>
-    Dashboard
-</li>
+<h2>
 
-<li class="active" onclick="location.href='admin-announcement.html'">
-    <i class="fa-solid fa-bullhorn"></i>
-    Announcements
-</li>
+<i class="fa-solid fa-bullhorn"></i>
 
-<li onclick="location.href='users.html'">
-    <i class="fa-solid fa-users"></i>
-    User Management
-</li>
+Create Announcement
 
-<li onclick="location.href='reports.html'">
-    <i class="fa-solid fa-chart-column"></i>
-    Reports
-</li>
+</h2>
 
-<li onclick="location.href='settings.html'">
-    <i class="fa-solid fa-gear"></i>
-    Settings
-</li>
+<br>
 
-        </ul>
+<input
+id="title"
+type="text"
+placeholder="Announcement title">
 
-    </aside>
+<br><br>
 
-    <main class="content">
+<textarea
+id="message"
+rows="6"
+placeholder="Write your announcement..."></textarea>
 
-        <!-- Create Announcement -->
+<br><br>
 
-        <div class="card">
+<select id="priority">
 
-            <h2>
+<option>General</option>
+<option>Important</option>
+<option>Emergency</option>
 
-                <i class="fa-solid fa-bullhorn"></i>
+</select>
 
-                Create Announcement
+<br><br>
 
-            </h2>
+<button id="postBtn">
 
-            <br>
+<i class="fa-solid fa-paper-plane"></i>
 
-            <input
-                id="title"
-                type="text"
-                placeholder="Announcement title"
-            >
+Post Announcement
 
-            <br><br>
+</button>
 
-            <textarea
-                id="message"
-                rows="6"
-                placeholder="Write your announcement..."
-            ></textarea>
+</div>
 
-            <br><br>
+<br>
 
-            <select id="priority">
+<div class="card">
 
-                <option>General</option>
+<h2>
 
-                <option>Important</option>
+<i class="fa-solid fa-clock-rotate-left"></i>
 
-                <option>Emergency</option>
+Recent Announcements
 
-            </select>
+</h2>
 
-            <br><br>
+<br>
 
-            <button id="postBtn">
+<div id="recentAnnouncements">
 
-                <i class="fa-solid fa-paper-plane"></i>
+Loading...
 
-                Post Announcement
+</div>
 
-            </button>
+</div>
 
-        </div>
-
-        <br>
-
-        <!-- Recent Announcements -->
-
-        <div class="card">
-
-            <h2>
-
-                <i class="fa-solid fa-clock-rotate-left"></i>
-
-                Recent Announcements
-
-            </h2>
-
-            <br>
-
-            <div id="recentAnnouncements">
-
-                Loading...
-
-            </div>
-
-        </div>
-
-    </main>
+</main>
 
 </div>
 
 <script type="module" src="js/pages/admin.js"></script>
+
+<script type="module">
+
+import { loadAdminSidebar }
+from "./js/components/adminSidebar.js";
+
+loadAdminSidebar("announcements");
+
+</script>
 
 </body>
 

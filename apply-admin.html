@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Apply for Administrator | Safety First</title>
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="logo">
+
+        <img src="images/logo.png" alt="Logo">
+
+        <span>Safety First</span>
+
+    </div>
+
+    <div class="topbar-right">
+
+        <button
+            class="logout-btn"
+            onclick="window.location.href='dashboard.html'">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back
+
+        </button>
+
+    </div>
+
+</header>
+
+<div class="dashboard">
+
+<div id="applicationStatus" class="card" style="display:none;">
+    Loading...
+</div>
+
+    <main class="content">
+
+        <div class="card">
+
+            <h2>
+
+                <i class="fa-solid fa-user-shield"></i>
+
+                Administrator Application
+
+            </h2>
+
+            <br>
+
+            <input
+                type="text"
+                id="fullName"
+                placeholder="Full Name">
+
+            <br><br>
+
+            <input
+                type="email"
+                id="schoolEmail"
+                placeholder="School Email">
+
+            <br><br>
+
+            <input
+                type="text"
+                id="employeeId"
+                placeholder="Employee ID">
+
+            <br><br>
+
+            <input
+                type="text"
+                id="department"
+                placeholder="Department">
+
+            <br><br>
+
+            <select id="position">
+
+                <option>Teacher</option>
+                <option>Principal</option>
+                <option>Guidance Counselor</option>
+                <option>Safety Officer</option>
+                <option>School Staff</option>
+
+            </select>
+
+            <br><br>
+
+            <textarea
+                id="reason"
+                rows="6"
+                placeholder="Reason for requesting administrator access"></textarea>
+
+            <br><br>
+
+            <button id="submitApplication">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+                Submit Application
+
+            </button>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script type="module" src="js/pages/apply-admin.js"></script>
+
+</body>
+
+</html>
