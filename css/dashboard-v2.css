@@ -908,9 +908,26 @@ QUICK ACTIONS
 
 .sidebar{
 
-    width:100%;
-    height:auto;
-    position:relative;
+    position:fixed;
+    left:-280px;
+    top:0;
+
+    width:270px;
+    height:100vh;
+
+    background:#1E3A5F;
+
+    z-index:2000;
+
+    transition:.3s;
+
+    overflow-y:auto;
+
+}
+
+.sidebar.open{
+
+    left:0;
 
 }
 
@@ -966,6 +983,38 @@ QUICK ACTIONS
 .profile-grid{
 
     grid-template-columns:1fr;
+
+}
+
+}
+
+.mobile-menu-btn{
+
+    display:none;
+
+}
+
+@media(max-width:768px){
+
+.mobile-menu-btn{
+
+    display:flex;
+
+    width:50px;
+    height:50px;
+
+    justify-content:center;
+    align-items:center;
+
+    border:none;
+    border-radius:12px;
+
+    background:#2563EB;
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
 
 }
 
