@@ -1,0 +1,446 @@
+/* ==========================================
+   PAGE HEADER
+========================================== */
+
+.page-header{
+
+    margin-bottom:35px;
+
+}
+
+.page-header h1{
+
+    font-size:40px;
+
+    color:#1E3A5F;
+
+    margin-bottom:10px;
+
+}
+
+.page-header p{
+
+    color:#64748B;
+
+    font-size:17px;
+
+    line-height:1.7;
+
+}
+
+/* ==========================================
+   GRID
+========================================== */
+
+.contacts-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:25px;
+
+    margin-bottom:35px;
+
+}
+
+/* ==========================================
+   CONTACT CARD
+========================================== */
+
+.contact-card{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:30px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    transition:.25s;
+
+    border-left:8px solid #2563EB;
+
+}
+
+.contact-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+
+}
+
+.contact-card i{
+
+    font-size:42px;
+
+    color:#2563EB;
+
+    margin-bottom:20px;
+
+}
+
+.contact-card h2,
+.contact-card h3{
+
+    color:#1E3A5F;
+
+    margin-bottom:12px;
+
+}
+
+.contact-card h1{
+
+    font-size:42px;
+
+    color:#2563EB;
+
+    margin-top:20px;
+
+}
+
+.contact-card p{
+
+    color:#475569;
+
+    line-height:1.8;
+
+}
+
+.location{
+
+    font-weight:bold;
+
+    color:#2563EB;
+
+    margin-bottom:15px;
+
+}
+
+/* ==========================================
+   CARD COLORS
+========================================== */
+
+.clinic{
+
+    border-left-color:#10B981;
+
+}
+
+.clinic i{
+
+    color:#10B981;
+
+}
+
+.principal{
+
+    border-left-color:#F59E0B;
+
+}
+
+.principal i{
+
+    color:#F59E0B;
+
+}
+
+.emergency{
+
+    border-left-color:#DC2626;
+
+}
+
+.emergency i{
+
+    color:#DC2626;
+
+}
+
+.emergency h1{
+
+    color:#DC2626;
+
+}
+
+/* ==========================================
+   SECTION
+========================================== */
+
+.locations-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(520px,1fr));
+
+    gap:30px;
+
+    margin-top:25px;
+
+}
+
+.location-card{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    background:#fff;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    border-left:8px solid #2563EB;
+
+}
+
+.location-info{
+
+    padding:35px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+.location-icon{
+
+    font-size:42px;
+
+    color:#2563EB;
+
+    margin-bottom:20px;
+
+}
+
+.location-info h3{
+
+    font-size:30px;
+
+    color:#1E3A5F;
+
+    margin-bottom:18px;
+
+}
+
+.location-info p{
+
+    color:#475569;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+.location-image{
+
+    height:100%;
+
+}
+
+.location-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+/* ==========================================
+   REMINDER
+========================================== */
+
+.reminder-card{
+
+    background:linear-gradient(135deg,#1E3A5F,#2563EB);
+
+    color:white;
+
+    border-radius:25px;
+
+    padding:35px;
+
+    margin-top:20px;
+
+}
+
+.reminder-card h2{
+
+    margin-bottom:20px;
+
+}
+
+.reminder-card ul{
+
+    padding-left:20px;
+
+}
+
+.reminder-card li{
+
+    margin-bottom:12px;
+
+    line-height:1.8;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:768px){
+
+.page-header h1{
+
+font-size:32px;
+
+}
+
+.contact-card{
+
+padding:24px;
+
+}
+
+.reminder-card{
+
+padding:25px;
+
+}
+
+}
+
+/* ==========================================
+   HOTLINES LIST
+========================================== */
+
+.hotlines-list{
+
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    margin-top:25px;
+
+}
+
+.hotlines-list .contact-card{
+
+    display:grid;
+    grid-template-columns:70px 1fr auto;
+    align-items:center;
+
+    padding:20px 28px;
+
+    min-height:110px;
+
+}
+
+.hotlines-list .contact-card i{
+
+    font-size:34px;
+    margin:0;
+
+}
+
+.hotlines-list .contact-card h3{
+
+    margin:0 0 6px;
+    font-size:24px;
+
+}
+
+.hotlines-list .contact-card p{
+
+    margin:0;
+    color:#64748B;
+    line-height:1.4;
+
+}
+
+.hotlines-list .contact-card h1{
+
+    margin:0;
+    font-size:48px;
+    font-weight:700;
+
+}
+
+.hotlines-list .contact-card{
+
+    transition:.25s;
+
+}
+
+.hotlines-list .contact-card:hover{
+
+    transform:translateX(8px);
+
+}
+
+.hotlines-list .contact-card{
+
+    padding:18px 28px !important;
+    min-height:90px !important;
+
+}
+
+/* ==========================================
+   NATIONAL HOTLINES SECTION
+========================================== */
+
+.campus-section{
+
+    margin-top:50px;
+
+}
+
+.campus-section h2{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:22px;
+
+    color:#1E3A5F;
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+@media(max-width:768px){
+
+.hotlines-list .contact-card{
+
+    grid-template-columns:55px 1fr;
+
+}
+
+.hotlines-list .contact-card h1{
+
+    grid-column:2;
+
+    justify-self:start;
+
+    margin-top:10px;
+
+}
+
+}

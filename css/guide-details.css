@@ -295,3 +295,19 @@
     margin-bottom:10px;
 
 }
+
+@media(max-width:768px){
+
+.evacuation-map{
+
+    height:320px;
+
+}
+
+.legend-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+}

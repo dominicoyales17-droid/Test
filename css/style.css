@@ -67,3 +67,29 @@ textarea{
     font:inherit;
 
 }
+
+img{
+
+    max-width:100%;
+
+}
+
+table{
+
+    width:100%;
+
+    overflow:auto;
+
+}
+
+iframe{
+
+    width:100%;
+
+}
+
+textarea{
+
+    resize:vertical;
+
+}

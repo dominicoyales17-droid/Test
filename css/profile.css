@@ -451,3 +451,26 @@ PASSWORD MODAL
     margin-top:10px;
 
 }
+
+@media(max-width:768px){
+
+.profile-card{
+
+    padding:20px;
+
+}
+
+.button-group{
+
+    flex-direction:column;
+
+}
+
+.primary-btn,
+.secondary-btn{
+
+    width:100%;
+
+}
+
+}

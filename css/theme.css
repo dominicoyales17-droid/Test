@@ -409,3 +409,52 @@ HERO SECTION
     }
 
 }
+
+/* ==========================================
+   MOBILE SIDEBAR
+========================================== */
+
+@media (max-width:768px){
+
+    .sidebar{
+        position: fixed;
+        top: 0;
+        left: -270px;
+        width: 270px;
+        height: 100vh;
+        z-index: 2000;
+        transition: left .3s ease;
+    }
+
+    .sidebar.show{
+        left: 0;
+    }
+
+    .content{
+        width: 100%;
+        margin-left: 0;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .dashboard{
+        flex-direction: column;
+    }
+
+    .sidebar{
+        width:100%;
+        min-height:auto;
+        position:relative;
+    }
+
+    .sidebar-header h2{
+        font-size:24px;
+    }
+
+    .sidebar-menu li{
+        padding:15px 20px;
+    }
+
+}

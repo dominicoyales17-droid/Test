@@ -19,7 +19,10 @@ document.getElementById("guideDescription").textContent =
 // Elements
 // ======================================
 
-const floorSelect = document.getElementById("floorSelect");
+const floorButtons =
+document.querySelectorAll(".floor-btn");
+
+let currentFloor = "1";
 
 const evacuationMap = document.getElementById("evacuationMap");
 
