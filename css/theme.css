@@ -213,78 +213,80 @@ button{
 }
 
 /* ==========================================
-SIDEBAR V2
+   SIDEBAR V2
 ========================================== */
 
 .sidebar{
 
     width:270px;
+    min-height:100vh;
 
     background:linear-gradient(180deg,#1E3A5F,#17304F);
 
-    color:white;
-
-    min-height:100vh;
+    color:#fff;
 
     display:flex;
-
     flex-direction:column;
-
-    padding:25px 0;
 
     flex-shrink:0;
 
+    transition:
+        width .3s ease,
+        left .3s ease;
+
+    overflow:hidden;
+
 }
+
+/* Header */
 
 .sidebar-header{
 
+    padding:30px 20px;
     text-align:center;
-
-    padding:0 25px;
 
 }
 
 .sidebar-header h2{
 
-    font-size:30px;
+    font-size:28px;
+    margin-bottom:6px;
 
 }
 
 .sidebar-header span{
 
-    color:#cbd5e1;
-
+    color:#CBD5E1;
     font-size:14px;
 
 }
 
+/* Menu */
+
 .sidebar-menu{
 
     list-style:none;
-
-    margin-top:20px;
-
     flex:1;
+    padding:10px;
 
 }
 
 .sidebar-menu li{
 
     display:flex;
-
     align-items:center;
 
-    gap:18px;
+    gap:16px;
 
-    padding:18px 28px;
+    padding:16px 18px;
+
+    margin-bottom:10px;
+
+    border-radius:12px;
 
     cursor:pointer;
 
     transition:.25s;
-
-    margin:8px 15px;
-
-    border-radius:12px;
 
 }
 
@@ -296,7 +298,7 @@ SIDEBAR V2
 
 .sidebar-menu li.active{
 
-    background:white;
+    background:#fff;
 
     color:#1E3A5F;
 
@@ -306,43 +308,103 @@ SIDEBAR V2
 
 .sidebar-menu li i{
 
-    width:24px;
-
+    width:22px;
     text-align:center;
-
     font-size:18px;
 
 }
 
+/* Footer */
+
 .sidebar-footer{
+
+    padding:20px;
 
     text-align:center;
 
-    color:#cbd5e1;
+    color:#CBD5E1;
 
     font-size:13px;
 
-    margin-top:auto;
+}
 
-    padding:20px;
+/* ==========================
+   COLLAPSED DESKTOP
+========================== */
+
+.sidebar.collapsed{
+
+    width:85px;
+
+}
+
+.sidebar.collapsed .sidebar-header span,
+.sidebar.collapsed .sidebar-header h2,
+.sidebar.collapsed .sidebar-menu span,
+.sidebar.collapsed .sidebar-footer{
+
+    display:none;
+
+}
+
+.sidebar.collapsed .sidebar-menu li{
+
+    justify-content:center;
+
+    padding:18px 0;
+
+}
+
+.sidebar.collapsed .sidebar-menu li i{
+
+    margin:0;
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width:768px){
+
+.sidebar{
+
+    position:fixed;
+
+    top:0;
+    left:-270px;
+
+    width:270px;
+    height:100vh;
+
+    z-index:2000;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.35);
+
+}
+
+.sidebar.open{
+
+    left:0;
+
+}
 
 }
 
 /* ==========================================
-HERO SECTION
+   TOP BAR
 ========================================== */
 
-.hero{
+.topbar-v2{
 
-    background:linear-gradient(135deg,#1E3A5F,#2563EB);
+    position:sticky;
+    top:0;
 
-    color:white;
+    z-index:1500;
 
-    border-radius:24px;
+    height:85px;
 
-    padding:40px;
-
-    margin-bottom:35px;
+    background:#fff;
 
     display:flex;
 
@@ -350,111 +412,224 @@ HERO SECTION
 
     align-items:center;
 
-    gap:30px;
+    padding:0 25px;
 
-    box-shadow:0 15px 35px rgba(37,99,235,.25);
-
-}
-
-.hero h1{
-
-    font-size:42px;
-
-    margin-bottom:12px;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
 
 }
 
-.hero p{
+/* Left side */
 
-    opacity:.95;
-
-    line-height:1.7;
-
-}
-
-.hero-right{
+.topbar-left{
 
     display:flex;
 
-    gap:15px;
+    align-items:center;
 
-    flex-wrap:wrap;
+    gap:18px;
 
 }
 
-.hero-right button{
+/* Right side */
 
-    background:white;
+.topbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+/* Menu button */
+
+#menuBtn{
+
+    width:48px;
+    height:48px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#EEF4FB;
 
     color:#1E3A5F;
 
-    font-weight:bold;
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.25s;
 
 }
 
-.hero-right button:hover{
+#menuBtn:hover{
 
-    background:#eef4fb;
+    background:#2563EB;
 
-}
-
-@media(max-width:900px){
-
-    .hero{
-
-        flex-direction:column;
-
-        text-align:center;
-
-    }
+    color:white;
 
 }
 
-/* ==========================================
-   MOBILE SIDEBAR
-========================================== */
+/* School branding */
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.brand-logo{
+
+    width:52px;
+
+    height:52px;
+
+    object-fit:contain;
+
+}
+
+.brand-text{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.brand-text h2{
+
+    margin:0;
+
+    font-size:22px;
+
+    color:#1E3A5F;
+
+}
+
+.brand-text span{
+
+    font-size:13px;
+
+    color:#64748B;
+
+}
+
+/* Notification */
+
+.icon-btn{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#EEF4FB;
+
+    color:#1E3A5F;
+
+    position:relative;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.icon-btn:hover{
+
+    background:#2563EB;
+
+    color:white;
+
+}
+
+.icon-btn span{
+
+    position:absolute;
+
+    top:-5px;
+
+    right:-5px;
+
+    width:20px;
+
+    height:20px;
+
+    border-radius:50%;
+
+    background:#DC2626;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:11px;
+
+}
+
+/* ==========================
+   MOBILE TOP BAR
+========================== */
 
 @media (max-width:768px){
 
-    .sidebar{
-        position: fixed;
-        top: 0;
-        left: -270px;
-        width: 270px;
-        height: 100vh;
-        z-index: 2000;
-        transition: left .3s ease;
-    }
+.topbar-v2{
 
-    .sidebar.show{
-        left: 0;
-    }
+    height:70px;
 
-    .content{
-        width: 100%;
-        margin-left: 0;
-    }
+    padding:0 15px;
 
 }
 
-@media (max-width:768px){
+.brand-logo{
 
-    .dashboard{
-        flex-direction: column;
-    }
+    width:42px;
+    height:42px;
 
-    .sidebar{
-        width:100%;
-        min-height:auto;
-        position:relative;
-    }
+}
 
-    .sidebar-header h2{
-        font-size:24px;
-    }
+.brand-text h2{
 
-    .sidebar-menu li{
-        padding:15px 20px;
-    }
+    font-size:20px;
+
+}
+
+/* Hide long name */
+
+.brand-text span{
+
+    display:none;
+
+}
+
+/* Show initials */
+
+.brand-text h2::after{
+
+    content:"";
+
+}
+
+/* We'll change the HTML later to JRCA */
 
 }
