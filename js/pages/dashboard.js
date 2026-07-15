@@ -1,8 +1,7 @@
 import { auth, db } from "../firebase.js";
 
 import {
-    onAuthStateChanged,
-    signOut
+    onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
 import {
@@ -16,171 +15,15 @@ import {
     getCountFromServer
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
-const welcomeUser = document.getElementById("welcomeUser");
-const usernameDisplay = document.getElementById("usernameDisplay");
+// ======================================
+// ELEMENTS
+// ======================================
+
 const greeting = document.getElementById("greeting");
 const currentDate = document.getElementById("currentDate");
-const logoutBtn = document.getElementById("logoutBtn");
+const usernameDisplay = document.getElementById("usernameDisplay");
 
-onAuthStateChanged(auth, async (user) => {
-
-    if (!user) {
-        window.location.href = "login.html";
-        return;
-    }
-
-    // Get the logged-in user's document
-const userDoc = await getDoc(doc(db, "users", user.uid));
-
-if (userDoc.exists()) {
-
-    const data = userDoc.data();
-
-    welcomeUser.textContent = `Welcome, ${data.username}!`;
-
-    const hour = new Date().getHours();
-
-    let message = "Good Evening";
-
-    if (hour < 12) {
-
-        message = "Good Morning";
-
-    }
-    else if (hour < 18) {
-
-        message = "Good Afternoon";
-
-    }
-
-    greeting.textContent = `${message}, ${data.username}!`;
-
-    currentDate.textContent =
-        new Date().toLocaleString(undefined, {
-
-            weekday: "long",
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            hour: "numeric",
-            minute: "2-digit"
-
-        });
-
-    usernameDisplay.innerHTML = `
-        Welcome back to the Safety Information and Preparedness Management System.
-    `;
-
-}
-else {
-
-    usernameDisplay.textContent = "User data not found.";
-
-}
-});
-
-logoutBtn.addEventListener("click", async () => {
-
-    await signOut(auth);
-
-    window.location.href = "login.html";
-
-});
-
-// =======================
-// Latest Announcement
-// =======================
-
-const announcementBox =
-document.getElementById("announcement");
-
-const announcementQuery = query(
-
-    collection(db, "announcements"),
-
-    orderBy("createdAt", "desc"),
-
-    limit(1)
-
-);
-
-onSnapshot(announcementQuery, (snapshot) => {
-
-    if (snapshot.empty) {
-
-        announcementBox.innerHTML = "No announcements yet.";
-
-        return;
-
-    }
-
-    const announcement = snapshot.docs[0].data();
-
-    let priorityColor = "#1f4e79";
-
-    if (announcement.priority === "Emergency") {
-
-        priorityColor = "red";
-
-    }
-
-    else if (announcement.priority === "Important") {
-
-        priorityColor = "orange";
-
-    }
-
-    let date = "";
-
-if (announcement.createdAt) {
-    date = announcement.createdAt.toDate().toLocaleString();
-}
-
-announcementBox.innerHTML = `
-
-<div class="announcement-card">
-
-    <span
-        class="priority-badge"
-        style="background:${priorityColor};">
-
-        ${announcement.priority}
-
-    </span>
-
-    <h2>
-
-        ${announcement.title}
-
-    </h2>
-
-    <p>
-
-        ${announcement.message}
-
-    </p>
-
-    <hr>
-
-    <small>
-
-        👤 ${announcement.postedBy}
-
-        <br>
-
-        🕒 ${date}
-
-    </small>
-
-</div>
-
-`;
-
-});
-
-// =======================
-// Dashboard Statistics
-// =======================
+const announcementBox = document.getElementById("announcement");
 
 const announcementCounter =
 document.getElementById("announcementCount");
@@ -188,29 +31,220 @@ document.getElementById("announcementCount");
 const notificationCounter =
 document.getElementById("notificationCountCard");
 
+const recentActivity =
+document.getElementById("recentActivity");
+
+const banner =
+document.getElementById("alertBanner");
+
+const title =
+document.getElementById("alertTitle");
+
+const alertMessage =
+document.getElementById("alertMessage");
+
+const instruction =
+document.getElementById("alertInstruction");
+
+const badge =
+document.getElementById("alertBadge");
+
+// ======================================
+// AUTH
+// ======================================
+
+onAuthStateChanged(auth, async (user)=>{
+
+    if(!user){
+
+        window.location.href="login.html";
+
+        return;
+
+    }
+
+    const userDoc =
+    await getDoc(doc(db,"users",user.uid));
+
+    if(userDoc.exists()){
+
+        const data=userDoc.data();
+
+        const hour=new Date().getHours();
+
+        let greet="Good Evening";
+
+        if(hour<12){
+
+            greet="Good Morning";
+
+        }
+
+        else if(hour<18){
+
+            greet="Good Afternoon";
+
+        }
+
+        if(greeting){
+
+            greeting.textContent=
+            `${greet}, ${data.username}!`;
+
+        }
+
+        if(currentDate){
+
+            currentDate.textContent=
+            new Date().toLocaleString(undefined,{
+                weekday:"long",
+                year:"numeric",
+                month:"long",
+                day:"numeric",
+                hour:"numeric",
+                minute:"2-digit"
+            });
+
+        }
+
+        if(usernameDisplay){
+
+            usernameDisplay.textContent=
+            "Welcome back to the Safety Information and Preparedness Management System.";
+
+        }
+
+    }
+
+    else{
+
+        if(usernameDisplay){
+
+            usernameDisplay.textContent=
+            "User data not found.";
+
+        }
+
+    }
+
+});
+
+// ======================================
+// DASHBOARD STATS
+// ======================================
+
 async function loadDashboardStats(){
 
-    const announcements =
-    await getCountFromServer(collection(db,"announcements"));
+    const total=
+    await getCountFromServer(
+        collection(db,"announcements")
+    );
 
-    announcementCounter.textContent =
-    announcements.data().count;
+    if(announcementCounter){
 
-    notificationCounter.textContent =
-    announcements.data().count;
+        announcementCounter.textContent=
+        total.data().count;
+
+    }
+
+    if(notificationCounter){
+
+        notificationCounter.textContent=
+        total.data().count;
+
+    }
 
 }
 
 loadDashboardStats();
 
-// =======================
-// Recent Activity
-// =======================
+// ======================================
+// FEATURED ANNOUNCEMENT
+// ======================================
 
-const recentActivity =
-document.getElementById("recentActivity");
+const latestQuery=query(
 
-const recentQuery = query(
+    collection(db,"announcements"),
+
+    orderBy("createdAt","desc"),
+
+    limit(1)
+
+);
+
+onSnapshot(latestQuery,(snapshot)=>{
+
+    if(!announcementBox) return;
+
+    if(snapshot.empty){
+
+        announcementBox.innerHTML=
+        "No announcements yet.";
+
+        return;
+
+    }
+
+    const item=
+    snapshot.docs[0].data();
+
+    let color="#2563EB";
+
+    if(item.priority==="Emergency"){
+
+        color="#DC2626";
+
+    }
+
+    else if(item.priority==="Important"){
+
+        color="#F59E0B";
+
+    }
+
+    const date=item.createdAt
+    ? item.createdAt.toDate().toLocaleString()
+    : "";
+
+    announcementBox.innerHTML=`
+
+    <div class="announcement-card">
+
+        <span
+        class="priority-badge"
+        style="background:${color};">
+
+            ${item.priority}
+
+        </span>
+
+        <h2>${item.title}</h2>
+
+        <p>${item.message}</p>
+
+        <hr>
+
+        <small>
+
+            👤 ${item.postedBy}
+
+            <br>
+
+            🕒 ${date}
+
+        </small>
+
+    </div>
+
+    `;
+
+});
+
+// ======================================
+// RECENT ACTIVITY
+// ======================================
+
+const recentQuery=query(
 
     collection(db,"announcements"),
 
@@ -222,29 +256,28 @@ const recentQuery = query(
 
 onSnapshot(recentQuery,(snapshot)=>{
 
+    if(!recentActivity) return;
+
     if(snapshot.empty){
 
-        recentActivity.innerHTML = "No recent activity.";
+        recentActivity.innerHTML=
+        "No recent activity.";
 
         return;
 
     }
 
-    recentActivity.innerHTML = "";
+    recentActivity.innerHTML="";
 
     snapshot.forEach(doc=>{
 
-        const data = doc.data();
+        const data=doc.data();
 
-        let date = "";
+        const date=data.createdAt
+        ? data.createdAt.toDate().toLocaleString()
+        : "";
 
-        if(data.createdAt){
-
-            date = data.createdAt.toDate().toLocaleString();
-
-        }
-
-        recentActivity.innerHTML += `
+        recentActivity.innerHTML+=`
 
         <div class="activity-item">
 
@@ -273,55 +306,72 @@ onSnapshot(recentQuery,(snapshot)=>{
 });
 
 // ======================================
-// Demo Emergency Alert
+// EMERGENCY STATUS
 // ======================================
 
-// Change this to:
-// "normal"
-// "warning"
-// "danger"
+const emergencyStatus="normal";
 
-const emergencyStatus = "safe";
+// normal
+// warning
+// danger
 
-const banner =
-document.getElementById("alertBanner");
+if(
+    banner &&
+    title &&
+    alertMessage &&
+    instruction &&
+    badge
+){
 
-const title =
-document.getElementById("alertTitle");
+    if(emergencyStatus==="warning"){
 
-const message =
-document.getElementById("alertMessage");
+        banner.className="status-card warning";
 
-const instruction =
-document.getElementById("alertInstruction");
+        title.textContent=
+        "🟠 Earthquake Drill";
 
-const badge =
-document.getElementById("alertBadge");
+        alertMessage.innerHTML=
+        "<strong>Earthquake Drill in Progress</strong>";
 
-if(emergencyStatus==="warning"){
+        instruction.textContent=
+        "Proceed calmly to your designated evacuation area.";
 
-    banner.className="status-card warning";
+        badge.textContent="DRILL";
 
-    title.textContent="🟠 Earthquake Drill";
+    }
 
-    message.innerHTML="<strong>Earthquake Drill in Progress</strong>";
+    else if(emergencyStatus==="danger"){
 
-    instruction.textContent="Proceed calmly to your designated evacuation area.";
+        banner.className="status-card danger";
 
-    badge.textContent="DRILL";
+        title.textContent=
+        "🔴 Fire Emergency";
 
-}
+        alertMessage.innerHTML=
+        "<strong>Fire Emergency</strong>";
 
-if(emergencyStatus==="danger"){
+        instruction.textContent=
+        "Evacuate immediately using the nearest safe exit.";
 
-    banner.className="status-card danger";
+        badge.textContent="ALERT";
 
-    title.textContent="🔴 Fire Emergency";
+    }
 
-    message.innerHTML="<strong>Fire Emergency</strong>";
+    else{
 
-    instruction.textContent="Evacuate immediately using the nearest safe exit.";
+        banner.className="status-card normal";
 
-    badge.textContent="ALERT";
+        title.textContent=
+        "🟢 Campus Safety Status";
+
+        alertMessage.innerHTML=
+        "<strong>Normal Operations</strong>";
+
+        instruction.textContent=
+        "No active emergency alerts.";
+
+        badge.textContent="SAFE";
+
+    }
 
 }
