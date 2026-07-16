@@ -1260,3 +1260,31 @@ QUICK ACTIONS
     }
 
 }
+
+@media (max-width:768px){
+
+.topbar-v2{
+    display:flex !important;
+    justify-content:space-between !important;
+    align-items:center !important;
+}
+
+.topbar-left{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    flex:1 !important;
+    gap:12px !important;
+}
+
+.topbar-right{
+    display:flex !important;
+    justify-content:flex-end !important;
+    align-items:center !important;
+}
+
+.brand{
+    margin:0 !important;
+}
+
+}
