@@ -400,7 +400,7 @@ img{
 
 .sidebar-header{
 
-    padding:28px 20px;
+    padding:28px 20px 18px;
 
     text-align:center;
 
@@ -408,9 +408,13 @@ img{
 
 .sidebar-header h2{
 
-    font-size:30px;
+    font-size:36px;
 
-    font-weight:700;
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    color:#fff;
 
     margin-bottom:6px;
 
@@ -418,9 +422,9 @@ img{
 
 .sidebar-header span{
 
-    font-size:13px;
+    color:#C7D2FE;
 
-    color:#CBD5E1;
+    font-size:14px;
 
 }
 
@@ -432,59 +436,75 @@ img{
 
     list-style:none;
 
-    padding:12px;
+    padding:18px 12px;
 
 }
 
 .sidebar-menu li{
 
-    margin-bottom:8px;
-
-}
-
-.sidebar-menu a{
-
     display:flex;
 
     align-items:center;
 
-    gap:14px;
+    gap:16px;
 
-    height:52px;
+    height:54px;
 
     padding:0 18px;
 
+    margin-bottom:10px;
+
     border-radius:14px;
 
-    color:#fff;
+    cursor:pointer;
+
+    color:#E2E8F0;
 
     transition:.25s;
 
 }
 
-.sidebar-menu a:hover{
-
-    background:rgba(255,255,255,.12);
-
-}
-
-.sidebar-menu li.active a{
-
-    background:#fff;
-
-    color:#1E3A5F;
-
-    font-weight:600;
-
-}
-
-.sidebar-menu i{
+.sidebar-menu li i{
 
     width:22px;
 
+    font-size:18px;
+
     text-align:center;
 
+}
+
+.sidebar-menu li span{
+
     font-size:18px;
+
+    font-weight:500;
+
+}
+
+.sidebar-menu li:hover{
+
+    background:rgba(255,255,255,.10);
+
+    transform:translateX(6px);
+
+}
+
+.sidebar-menu li.active{
+
+    background:#2563EB;
+
+    color:#fff;
+
+    font-weight:700;
+
+    box-shadow:0 8px 20px rgba(37,99,235,.35);
+
+}
+
+.sidebar-menu li.active i{
+
+    color:#fff;
 
 }
 
@@ -496,7 +516,7 @@ img{
 
     margin-top:auto;
 
-    padding:24px;
+    padding:20px;
 
     text-align:center;
 
