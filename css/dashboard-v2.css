@@ -1,13 +1,57 @@
-/* ==========================================
-   SAFETY FIRST DASHBOARD V2
-========================================== */
+/* =====================================================
+   SAFETY FIRST V2
+   Dashboard Layout
+===================================================== */
 
-/* Dashboard Layout */
+:root{
+
+    --primary:#1E3A5F;
+    --secondary:#2563EB;
+    --background:#EEF4FB;
+
+    --white:#FFFFFF;
+
+    --text:#1E293B;
+    --gray:#64748B;
+
+    --border:#E2E8F0;
+
+    --danger:#DC2626;
+    --warning:#F59E0B;
+    --success:#10B981;
+
+    --shadow:0 12px 30px rgba(0,0,0,.08);
+
+    --radius:18px;
+
+}
+
+/* ===================================================== */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+    font-family:"Segoe UI",sans-serif;
+
+}
+
+body{
+
+    background:var(--background);
+    color:var(--text);
+
+}
+
+/* =====================================================
+   LAYOUT
+===================================================== */
 
 .dashboard{
 
     display:flex;
-
     min-height:100vh;
 
 }
@@ -15,232 +59,384 @@
 .content{
 
     flex:1;
-
-    padding:40px;
-
-    background:#EEF4FB;
+    padding:35px;
 
 }
 
-/* ==========================================
-TOP BAR
-========================================== */
+/* =====================================================
+   TOP BAR
+===================================================== */
 
 .topbar-v2{
 
     position:sticky;
-
     top:0;
 
-    z-index:999;
+    z-index:1500;
 
     height:85px;
 
     background:#fff;
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
-    padding:0 35px;
+    padding:0 25px;
 
-    box-shadow:0 6px 18px rgba(0,0,0,.08);
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+
+}
+
+/* LEFT */
+
+.topbar-left{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+}
+
+/* RIGHT */
+
+.topbar-right{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+}
+
+/* =====================================================
+   MENU BUTTON
+===================================================== */
+
+#menuBtn{
+
+    width:48px;
+    height:48px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#EEF4FB;
+
+    color:#1E3A5F;
+
+    font-size:20px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+#menuBtn:hover{
+
+    background:#2563EB;
+    color:white;
+
+}
+
+/* =========================
+   BRAND TEXT
+========================= */
+
+.desktop-title,
+.desktop-subtitle{
+
+    display:block;
+
+}
+
+.mobile-title,
+.mobile-subtitle{
+
+    display:none;
+
+}
+
+.brand-text{
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+.brand-text h2{
+
+    margin:0;
+    color:#1E3A5F;
+    font-size:18px;
+    font-weight:700;
+
+}
+
+.brand-text span{
+
+    color:#64748B;
+    font-size:14px;
 
 }
 
 .brand{
 
     display:flex;
-
     align-items:center;
-
-    gap:18px;
+    gap:15px;
 
 }
+
+/* FIX LOGO SIZE */
 
 .brand-logo{
 
-    width:58px;
-
-}
-
-.brand h2{
-
-    color:#1E3A5F;
-
-    margin:0;
-
-}
-
-.brand span{
-
-    color:#64748B;
-
-    font-size:14px;
-
-}
-
-.topbar-actions{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
-}
-
-.icon-btn{
-
     width:52px;
-
     height:52px;
 
-    border:none;
+    min-width:52px;
+    min-height:52px;
 
-    border-radius:50%;
+    max-width:52px;
+    max-height:52px;
 
-    background:#EEF4FB;
+    object-fit:contain;
 
-    color:#1E3A5F;
-
-    position:relative;
+    flex-shrink:0;
 
 }
 
-.icon-btn span{
+/* =========================
+   MOBILE
+========================= */
 
-    position:absolute;
+@media (max-width:768px){
 
-    top:-4px;
+.desktop-title,
+.desktop-subtitle{
 
-    right:-4px;
+    display:none;
 
-    width:22px;
+}
 
-    height:22px;
+.mobile-title,
+.mobile-subtitle{
 
-    border-radius:50%;
+    display:block;
 
-    background:#DC2626;
+}
 
-    color:white;
+.mobile-title{
 
-    display:flex;
+    font-size:28px;
+    font-weight:700;
+    color:#1E3A5F;
 
-    justify-content:center;
+}
 
-    align-items:center;
+.mobile-subtitle{
 
     font-size:12px;
+    color:#64748B;
+    letter-spacing:1px;
 
 }
 
-.user-info{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:14px;
-
 }
 
-.avatar{
+/* =====================================================
+   SIDEBAR
+===================================================== */
 
-    width:52px;
+.sidebar{
 
-    height:52px;
+    width:270px;
+    min-height:100vh;
 
-    border-radius:50%;
-
-    background:#2563EB;
+    background:linear-gradient(180deg,#1E3A5F,#17304F);
 
     color:white;
 
     display:flex;
+    flex-direction:column;
 
-    justify-content:center;
+    flex-shrink:0;
 
-    align-items:center;
+    transition:width .3s ease,left .3s ease;
 
-    font-size:22px;
-
-}
-
-.logout-btn{
-
-    background:#DC2626;
-
-    color:white;
-
-    border:none;
-
-    border-radius:12px;
-
-    padding:12px 18px;
-
-    font-weight:bold;
+    overflow:hidden;
 
 }
 
-.logout-btn:hover{
+/* Header */
 
-    background:#B91C1C;
+.sidebar-header{
 
-}
-
-/* ==========================================
-HERO
-========================================== */
-
-.hero{
-
-    background:linear-gradient(135deg,#1E3A5F,#2563EB);
-
-    color:white;
-
-    border-radius:28px;
-
-    padding:45px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:40px;
-
-    margin-bottom:35px;
-
-    box-shadow:0 20px 45px rgba(37,99,235,.25);
+    padding:28px 20px;
+    text-align:center;
 
 }
 
-.hero-left{
+.sidebar-header h2{
+
+    font-size:28px;
+    margin-bottom:6px;
+
+}
+
+.sidebar-header span{
+
+    font-size:14px;
+    color:#CBD5E1;
+
+}
+
+/* Menu */
+
+.sidebar-menu{
+
+    list-style:none;
+
+    padding:10px;
 
     flex:1;
 
 }
 
+.sidebar-menu li{
+
+    display:flex;
+    align-items:center;
+
+    gap:16px;
+
+    padding:15px 18px;
+
+    margin-bottom:10px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.sidebar-menu li:hover{
+
+    background:rgba(255,255,255,.12);
+
+}
+
+.sidebar-menu li.active{
+
+    background:white;
+
+    color:#1E3A5F;
+
+    font-weight:600;
+
+}
+
+.sidebar-menu li i{
+
+    width:22px;
+    text-align:center;
+    font-size:18px;
+
+}
+
+/* Footer */
+
+.sidebar-footer{
+
+    padding:20px;
+
+    text-align:center;
+
+    color:#CBD5E1;
+
+    font-size:13px;
+
+}
+
+/* =====================================================
+   DESKTOP COLLAPSED SIDEBAR
+===================================================== */
+
+.sidebar.open{
+
+    width:85px;
+
+}
+
+.sidebar.open .sidebar-header h2,
+.sidebar.open .sidebar-header span,
+.sidebar.open .sidebar-menu span,
+.sidebar.open .sidebar-footer{
+
+    display:none;
+
+}
+
+.sidebar.open .sidebar-menu li{
+
+    justify-content:center;
+
+    padding:18px 0;
+
+}
+
+.sidebar.open .sidebar-menu li i{
+
+    margin:0;
+
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:30px;
+
+    background:linear-gradient(135deg,#1E3A5F,#2563EB);
+
+    color:white;
+
+    border-radius:22px;
+
+    padding:40px;
+
+    margin-bottom:35px;
+
+    box-shadow:var(--shadow);
+
+}
+
 .hero-left h1{
 
-    font-size:44px;
-
-    margin-bottom:12px;
+    font-size:42px;
+    margin-bottom:10px;
 
 }
 
 .hero-left p{
 
+    line-height:1.7;
+
     opacity:.95;
-
-    line-height:1.8;
-
-    margin-bottom:8px;
 
 }
 
@@ -248,107 +444,93 @@ HERO
 
     display:flex;
 
-    flex-wrap:wrap;
-
     gap:15px;
+
+    flex-wrap:wrap;
 
 }
 
-.hero-right .btn-primary{
+/* =====================================================
+   BUTTONS
+===================================================== */
 
-    background:white;
+.btn-primary{
+
+    background:#fff;
 
     color:#1E3A5F;
 
-    padding:15px 24px;
+    border:none;
 
-    border-radius:14px;
+    border-radius:12px;
 
-    font-weight:700;
+    padding:14px 24px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
 
 }
 
-.hero-right .btn-primary:hover{
+.btn-primary:hover{
 
-    transform:translateY(-4px);
+    transform:translateY(-3px);
 
 }
 
-/* ==========================================
-STATISTICS
-========================================== */
+/* =====================================================
+   STATS
+===================================================== */
 
 .stats-grid{
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 
     gap:25px;
 
-    margin-bottom:40px;
+    margin:35px 0;
 
 }
 
 .stat-card{
 
-    background:white;
+    background:#fff;
 
-    border-radius:22px;
+    border-radius:18px;
 
-    padding:30px;
+    padding:28px;
 
-    box-shadow:0 12px 30px rgba(0,0,0,.08);
+    text-align:center;
+
+    box-shadow:var(--shadow);
 
     transition:.25s;
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-.stat-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    top:0;
-
-    width:100%;
-
-    height:6px;
-
-    background:#2563EB;
 
 }
 
 .stat-card:hover{
 
-    transform:translateY(-8px);
-
-    box-shadow:0 18px 40px rgba(0,0,0,.12);
+    transform:translateY(-6px);
 
 }
 
 .stat-card i{
 
-    font-size:46px;
+    font-size:42px;
 
     color:#2563EB;
 
-    margin-bottom:18px;
+    margin-bottom:15px;
 
 }
 
 .stat-card h2{
 
-    font-size:40px;
-
-    color:#1E3A5F;
+    font-size:36px;
 
     margin-bottom:8px;
 
@@ -358,153 +540,21 @@ STATISTICS
 
     color:#64748B;
 
-    font-weight:600;
-
 }
 
-/* ==========================================
-SECTION TITLES
-========================================== */
-
-.section-title-wrapper{
-
-    margin-bottom:25px;
-
-}
-
-.section-title{
-
-    color:#1E3A5F;
-
-    font-size:34px;
-
-    margin-bottom:8px;
-
-}
-
-.section-subtitle{
-
-    color:#64748B;
-
-}
-
-/* ==========================================
-QUICK ACTIONS
-========================================== */
-
-.quick-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-    gap:25px;
-
-    margin-bottom:40px;
-
-}
-
-.quick-card{
-
-    background:white;
-
-    border-radius:22px;
-
-    padding:30px;
-
-    box-shadow:0 12px 30px rgba(0,0,0,.08);
-
-    transition:.25s;
-
-    cursor:pointer;
-
-}
-
-.quick-card:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:0 18px 40px rgba(0,0,0,.12);
-
-}
-
-.quick-card i{
-
-    font-size:46px;
-
-    color:#2563EB;
-
-    margin-bottom:18px;
-
-}
-
-.quick-card h3{
-
-    margin-bottom:12px;
-
-    color:#1E3A5F;
-
-}
-
-.quick-card p{
-
-    color:#64748B;
-
-    line-height:1.7;
-
-}
-
-/* ==========================================
-   DASHBOARD GRID
-========================================== */
-
-.dashboard-grid{
-
-    display:grid;
-
-    grid-template-columns:2fr 1fr;
-
-    gap:30px;
-
-    margin-bottom:35px;
-
-}
-
-.dashboard-card{
-
-    background:white;
-
-    border-radius:22px;
-
-    padding:30px;
-
-    box-shadow:0 12px 30px rgba(0,0,0,.08);
-
-    transition:.25s;
-
-}
-
-.dashboard-card:hover{
-
-    transform:translateY(-4px);
-
-    box-shadow:0 18px 40px rgba(0,0,0,.12);
-
-}
-
-.dashboard-card h2{
-
-    color:#1E3A5F;
-
-    margin-bottom:20px;
-
-}
-
-/* ==========================================
-   CAMPUS STATUS
-========================================== */
+/* =====================================================
+   STATUS CARD
+===================================================== */
 
 .status-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    margin:35px 0;
 
     display:flex;
 
@@ -512,65 +562,13 @@ QUICK ACTIONS
 
     align-items:center;
 
-    gap:25px;
-
-    background:white;
-
-    border-radius:22px;
-
-    padding:32px;
-
-    margin-bottom:35px;
-
-    box-shadow:0 12px 30px rgba(0,0,0,.08);
-
-}
-
-.status-card h2{
-
-    color:#1E3A5F;
-
-    margin-bottom:10px;
-
-}
-
-.status-card p{
-
-    color:#475569;
-
-    margin-bottom:8px;
-
-}
-
-.status-card small{
-
-    color:#64748B;
-
-}
-
-.status-badge{
-
-    padding:18px 34px;
-
-    border-radius:40px;
-
-    color:white;
-
-    font-size:22px;
-
-    font-weight:bold;
+    box-shadow:var(--shadow);
 
 }
 
 .status-card.normal{
 
-    border-left:8px solid #22C55E;
-
-}
-
-.status-card.normal .status-badge{
-
-    background:#22C55E;
+    border-left:8px solid #10B981;
 
 }
 
@@ -578,193 +576,216 @@ QUICK ACTIONS
 
     border-left:8px solid #F59E0B;
 
-    background:#FFF7ED;
-
-}
-
-.status-card.warning .status-badge{
-
-    background:#F59E0B;
-
 }
 
 .status-card.danger{
 
     border-left:8px solid #DC2626;
 
-    background:#FEF2F2;
-
-    animation:pulseAlert 1.2s infinite;
-
 }
 
-.status-card.danger .status-badge{
+.status-badge{
 
-    background:#DC2626;
-
-}
-
-@keyframes pulseAlert{
-
-    0%{
-
-        transform:scale(1);
-
-    }
-
-    50%{
-
-        transform:scale(1.01);
-
-    }
-
-    100%{
-
-        transform:scale(1);
-
-    }
-
-}
-
-/* ==========================================
-   RECENT ACTIVITY
-========================================== */
-
-#recentActivity{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:18px;
-
-}
-
-.activity-item{
-
-    display:flex;
-
-    align-items:flex-start;
-
-    gap:18px;
-
-    padding-bottom:18px;
-
-    border-bottom:1px solid #E5E7EB;
-
-}
-
-.activity-item:last-child{
-
-    border-bottom:none;
-
-    padding-bottom:0;
-
-}
-
-.activity-icon{
-
-    width:48px;
-
-    height:48px;
-
-    border-radius:50%;
-
-    background:#2563EB;
+    background:#10B981;
 
     color:white;
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    flex-shrink:0;
-
-}
-
-.activity-content h4{
-
-    color:#1E3A5F;
-
-    margin-bottom:6px;
-
-}
-
-.activity-content p{
-
-    color:#64748B;
-
-}
-
-.activity-content small{
-
-    color:#94A3B8;
-
-}
-
-/* ==========================================
-   ANNOUNCEMENTS
-========================================== */
-
-#announcement{
-
-    color:#475569;
-
-    line-height:1.8;
-
-}
-
-.priority-badge{
-
-    display:inline-block;
-
-    padding:8px 18px;
+    padding:12px 25px;
 
     border-radius:999px;
 
-    color:white;
+    font-weight:bold;
 
-    font-weight:700;
+}
+
+/* =====================================================
+   DASHBOARD GRID
+===================================================== */
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:25px;
+
+    margin-top:30px;
+
+}
+
+.dashboard-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.dashboard-card h2{
 
     margin-bottom:18px;
 
-}
-
-.priority-low{
-
-    background:#22C55E;
+    color:#1E3A5F;
 
 }
 
-.priority-medium{
+/* =====================================================
+   RESPONSIVE
+===================================================== */
 
-    background:#F59E0B;
+@media (max-width:768px){
 
-}
+    /* ---------- TOP BAR ---------- */
 
-.priority-high{
+    .topbar-v2{
 
-    background:#DC2626;
+        height:auto;
 
-}
-
-/* ==========================================
-   MOBILE
-========================================== */
-
-@media (max-width:1000px){
-
-    .dashboard-grid{
-
-        grid-template-columns:1fr;
+        padding:12px 15px;
 
     }
 
+    .topbar-left{
+
+        flex:1;
+
+        display:flex;
+        align-items:center;
+
+        gap:10px;
+
+    }
+
+    .topbar-right{
+
+        display:flex;
+        align-items:center;
+
+        justify-content:flex-end;
+
+    }
+
+    .brand{
+
+        gap:10px;
+
+    }
+
+    .brand{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    flex:1;
+    min-width:0;
 }
 
-@media (max-width:900px){
+    .brand-logo{
+
+    width:42px;
+    height:42px;
+
+    min-width:42px;
+    min-height:42px;
+
+    max-width:42px;
+    max-height:42px;
+
+    object-fit:contain;
+
+    flex-shrink:0;
+
+    }
+
+    .brand-text{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        line-height:1.2;
+        overflow:hidden;
+    }
+
+    .brand-text h2{
+        margin:0;
+        font-size:18px;
+        font-weight:700;
+        color:#1E3A5F;
+    }
+
+    .brand-text span{
+        margin-top:3px;
+        font-size:14px;
+        color:#64748B;
+    }
+
+    .brand-text h2{
+
+        font-size:20px;
+
+    }
+
+    .brand-text span{
+
+        font-size:11px;
+
+    }
+
+    /* ---------- SIDEBAR ---------- */
+
+    .sidebar{
+
+        position:fixed;
+
+        left:-270px;
+        top:0;
+
+        width:270px;
+        height:100vh;
+
+        z-index:3000;
+
+        transition:left .30s ease;
+
+    }
+
+    .sidebar.open{
+
+        left:0;
+
+        width:270px;
+
+    }
+
+    .sidebar.open .sidebar-header h2,
+    .sidebar.open .sidebar-header span,
+    .sidebar.open .sidebar-menu span,
+    .sidebar.open .sidebar-footer{
+
+        display:block;
+
+    }
+
+    .sidebar.open .sidebar-menu li{
+
+        justify-content:flex-start;
+
+        padding:15px 18px;
+
+    }
+
+    /* ---------- CONTENT ---------- */
+
+    .content{
+
+        padding:18px;
+
+    }
+
+    /* ---------- HERO ---------- */
 
     .hero{
 
@@ -772,11 +793,41 @@ QUICK ACTIONS
 
         text-align:center;
 
+        padding:28px;
+
+    }
+
+    .hero-left h1{
+
+        font-size:32px;
+
     }
 
     .hero-right{
 
-        justify-content:center;
+        width:100%;
+
+        flex-direction:column;
+
+    }
+
+    .hero-right button{
+
+        width:100%;
+
+    }
+
+    /* ---------- CARDS ---------- */
+
+    .stats-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .dashboard-grid{
+
+        grid-template-columns:1fr;
 
     }
 
@@ -784,498 +835,214 @@ QUICK ACTIONS
 
         flex-direction:column;
 
+        gap:20px;
+
         text-align:center;
 
     }
 
+    .status-badge{
+
+        width:100%;
+
+    }
+
 }
 
-/* ==========================
-   MOBILE TOP BAR
-========================== */
+/* =====================================================
+   NOTIFICATION BUTTON
+===================================================== */
 
-@media (max-width:768px){
+.icon-btn{
 
-/* Left side */
+    width:48px;
+    height:48px;
 
-.topbar-left{
+    border:none;
+    border-radius:50%;
+
+    background:#EEF4FB;
 
     display:flex;
-
+    justify-content:center;
     align-items:center;
 
-    gap:10px;
+    cursor:pointer;
 
-    flex:1;
+    position:relative;
 
-}
-
-/* Right side */
-
-.topbar-right{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:flex-end;
-
-}
-
-/* Logo */
-
-.brand{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-}
-
-.brand-logo{
-
-    width:42px;
-
-    height:42px;
-
-}
-
-/* Hide long text */
-
-.brand-text h2{
-
-    font-size:0;
-
-}
-
-.brand-text span{
-
-    font-size:0;
-
-}
-
-/* Show JRCA */
-
-.brand-text h2::before{
-
-    content:"JRCA";
-
-    font-size:24px;
-
-    font-weight:700;
+    transition:.25s;
 
     color:#1E3A5F;
 
-    display:block;
-
 }
 
-/* Show abbreviated system name */
-
-.brand-text span::before{
-
-    content:"SIPMS";
-
-    font-size:12px;
-
-    color:#64748B;
-
-    display:block;
-
-    margin-top:3px;
-
-}
-
-}
-
-/* ===========================
-   MOBILE TOPBAR
-=========================== */
-
-@media (max-width:768px){
-
-.brand{
-    width:100%;
-    align-items:center;
-}
-
-.brand-logo{
-    width:45px;
-}
-
-.brand h2{
-    font-size:18px;
-    line-height:1.2;
-}
-
-.brand span{
-    display:block;
-    font-size:12px;
-}
-
-.topbar-actions{
-    width:100%;
-    justify-content:space-between;
-    flex-wrap:wrap;
-}
-
-.logout-btn{
-    width:100%;
-}
-
-}
-
-/* ==========================================
-   MOBILE RESPONSIVE
-========================================== */
-
-@media (max-width:768px){
-
-.topbar-actions{
-
-    width:100%;
-    justify-content:space-between;
-    flex-wrap:wrap;
-
-}
-
-.dashboard{
-
-    flex-direction:column;
-
-}
-
-.sidebar{
-
-    position:fixed;
-    left:-280px;
-    top:0;
-
-    width:270px;
-    height:100vh;
-
-    background:#1E3A5F;
-
-    z-index:2000;
-
-    transition:.3s;
-
-    overflow-y:auto;
-
-}
-
-.sidebar.open{
-
-    left:0;
-
-}
-
-.content{
-
-    padding:20px;
-
-}
-
-.stats-grid,
-.quick-grid,
-.contacts-grid,
-.locations-grid,
-.building-grid,
-.tips-grid{
-
-    grid-template-columns:1fr !important;
-
-}
-
-.location-card{
-
-    grid-template-columns:1fr;
-
-}
-
-.location-image{
-
-    height:220px;
-
-}
-
-.location-image img{
-
-    width:100%;
-    height:100%;
-    object-fit:cover;
-
-}
-
-.button-group{
-
-    flex-direction:column;
-
-}
-
-.button-group button{
-
-    width:100%;
-
-}
-
-.profile-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-}
-
-.mobile-menu-btn{
-
-    display:none;
-
-}
-
-/* ===========================
-   MOBILE
-=========================== */
-
-@media (max-width:768px){
-
-    /* topbar */
-
-    /* hamburger */
-
-    .menu-toggle{
-        width:56px;
-        height:56px;
-        flex-shrink:0;
-        margin:0;
-    }
-
-    /* logo + school name */
-
-    .brand{
-        flex:1;
-        display:flex;
-        align-items:center;
-        gap:10px;
-        min-width:0;
-    }
-
-    .brand-logo{
-        width:45px;
-        height:45px;
-    }
-
-    .brand h2{
-        font-size:20px;
-        line-height:1.2;
-        margin:0;
-    }
-
-    .brand span{
-        display:none;
-    }
-
-    /* second row */
-
-    .topbar-actions{
-        width:100%;
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        margin-top:15px;
-    }
-
-}
-
-.page-actions{
-    margin-bottom:20px;
-}
-
-.back-btn{
-
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
+.icon-btn:hover{
 
     background:#2563EB;
-    color:white;
-
-    border:none;
-    border-radius:12px;
-
-    padding:12px 20px;
-
-    font-size:16px;
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.25s;
+    color:#fff;
 
 }
 
-.back-btn:hover{
+.icon-btn span{
 
-    background:#1D4ED8;
-    transform:translateY(-2px);
+    position:absolute;
 
-}
+    top:-5px;
+    right:-5px;
 
-.page-nav{
-    margin-bottom:20px;
-}
+    width:20px;
+    height:20px;
 
-.back-link{
-    display:inline-flex;
+    border-radius:50%;
+
+    background:#DC2626;
+
+    color:#fff;
+
+    font-size:11px;
+
+    display:flex;
+    justify-content:center;
     align-items:center;
-    gap:8px;
 
-    color:#2563EB;
+}
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.card,
+.dashboard-card,
+.stat-card{
+
+    transition:.25s ease;
+
+}
+
+.card:hover,
+.dashboard-card:hover,
+.stat-card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/* =====================================================
+   LINKS
+===================================================== */
+
+a{
+
     text-decoration:none;
+    color:inherit;
 
-    font-weight:600;
-    font-size:16px;
-
-    transition:.2s;
 }
 
-.back-link:hover{
-    color:#1D4ED8;
-    transform:translateX(-3px);
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
 }
 
-.back-link i{
-    font-size:15px;
-}
-
-.page-back{
-    margin-bottom:20px;
-}
-
-.back-btn{
-    background:#2563EB;
-    color:#fff;
-    border:none;
-    padding:10px 18px;
-    border-radius:12px;
-    cursor:pointer;
-    font-size:15px;
-    font-weight:600;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    transition:.2s;
-}
-
-.back-btn:hover{
-    background:#1D4ED8;
-}
-
-.page-back{
-    margin-bottom:24px;
-}
-
-.back-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
+::-webkit-scrollbar-thumb{
 
     background:#2563EB;
-    color:#fff;
+    border-radius:20px;
 
-    padding:12px 22px;
-
-    border-radius:14px;
-    border:none;
-
-    font-size:15px;
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.25s;
 }
 
-.back-btn:hover{
-    background:#1D4ED8;
-    transform:translateX(-3px);
+::-webkit-scrollbar-track{
+
+    background:#EEF4FB;
+
 }
 
-@media (max-width:768px){
+/* =====================================================
+   DESKTOP IMPROVEMENTS
+===================================================== */
 
-    .brand-text span{
-        display:none;
+@media (min-width:769px){
+
+    .dashboard{
+
+        display:flex;
+
+    }
+
+    .content{
+
+        padding:35px;
+
+    }
+
+    .hero{
+
+        min-height:180px;
+
     }
 
     .brand-text h2{
-        font-size:0;
+
+        font-size:22px;
+
     }
 
-    .brand-text h2::before{
-        content:"JRCA";
-        font-size:22px;
-        font-weight:700;
-        color:#1E3A5F;
+    .brand-text span{
+
+        font-size:13px;
+
     }
 
 }
+
+/* =====================================================
+   MOBILE BRAND
+===================================================== */
 
 @media (max-width:768px){
 
-.topbar-v2{
-    padding:12px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-direction:row;
-}
+    .brand-text h2{
 
-.topbar-left{
-    display:flex;
-    align-items:center;
-    justify-content:flex-start;
-    gap:10px;
-    flex:1;
-}
+        font-size:18px;
+        font-weight:700;
 
-.topbar-right{
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
-}
+    }
 
-.brand{
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
+    .brand-text span{
 
-.brand-logo{
-    width:42px;
-    height:42px;
-}
+        font-size:10px;
+        letter-spacing:.5px;
 
-.brand-text h2{
-    font-size:0;
-}
+    }
 
-.brand-text h2::before{
-    content:"JRCA";
-    font-size:24px;
-    font-weight:700;
-    color:#1E3A5F;
-}
+    .sidebar-menu li{
 
-.brand-text span{
-    font-size:0;
-}
+        padding:12px 16px;
+        margin-bottom:6px;
 
-.brand-text span::before{
-    content:"SIPMS";
-    font-size:12px;
-    color:#64748B;
-}
+    }
+
+    .sidebar-header{
+
+        padding:20px;
+
+    }
+
+    .sidebar-header h2{
+
+        font-size:22px;
+
+    }
+
+    .sidebar-header span{
+
+        font-size:12px;
+
+    }
 
 }

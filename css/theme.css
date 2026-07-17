@@ -1,16 +1,11 @@
 /* ==========================================
-   SAFETY FIRST V2 DESIGN SYSTEM
+   SAFETY FIRST THEME
 ========================================== */
 
 :root{
 
     --primary:#1E3A5F;
     --secondary:#2563EB;
-
-    --fire:#EF4444;
-    --earthquake:#F97316;
-    --flood:#2563EB;
-    --typhoon:#7C3AED;
 
     --success:#10B981;
     --warning:#F59E0B;
@@ -26,67 +21,53 @@
 
     --border:#E2E8F0;
 
-    --shadow:
-
-    0 12px 30px rgba(0,0,0,.08);
+    --shadow:0 12px 30px rgba(0,0,0,.08);
 
     --radius:20px;
 
 }
 
-/* ========================================== */
+/* ==========================================
+   GLOBAL
+========================================== */
 
 *{
 
     margin:0;
-
     padding:0;
-
     box-sizing:border-box;
 
-    font-family:
-
-    "Segoe UI",
-
-    sans-serif;
+    font-family:"Segoe UI",sans-serif;
 
 }
 
 body{
 
     background:var(--background);
-
     color:var(--text);
 
 }
 
-/* ========================================== */
+/* ==========================================
+   LINKS
+========================================== */
 
-.card{
+a{
 
-    background:white;
-
-    border-radius:20px;
-
-    padding:25px;
-
-    box-shadow:var(--shadow);
+    color:inherit;
+    text-decoration:none;
 
 }
+
+/* ==========================================
+   BUTTONS
+========================================== */
 
 button{
 
     cursor:pointer;
-
     border:none;
-
     border-radius:12px;
-
-    padding:12px 24px;
-
-    font-size:16px;
-
-    font-weight:bold;
 
     transition:.25s;
 
@@ -95,37 +76,45 @@ button{
 .btn-primary{
 
     background:var(--secondary);
-
     color:white;
-
-}
-
-.btn-primary:hover{
-
-    transform:translateY(-3px);
 
 }
 
 .btn-danger{
 
     background:var(--danger);
-
     color:white;
 
 }
 
+.btn-primary:hover,
 .btn-danger:hover{
 
     transform:translateY(-3px);
 
 }
 
-/* ========================================== */
+/* ==========================================
+   CARDS
+========================================== */
+
+.card{
+
+    background:white;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ==========================================
+   TITLES
+========================================== */
 
 .section-title{
 
-    font-size:36px;
-
+    font-size:34px;
     margin-bottom:10px;
 
 }
@@ -134,705 +123,58 @@ button{
 
     color:var(--gray);
 
-    margin-bottom:35px;
+}
+
+/* ==========================================
+   FORM CONTROLS
+========================================== */
+
+input,
+textarea,
+select{
+
+    width:100%;
+
+    padding:12px 15px;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    outline:none;
+
+    transition:.25s;
 
 }
 
-/* ========================================== */
+input:focus,
+textarea:focus,
+select:focus{
 
-.stats-grid{
-
-    display:grid;
-
-    grid-template-columns:
-
-    repeat(auto-fit,minmax(220px,1fr));
-
-    gap:25px;
+    border-color:var(--secondary);
 
 }
 
-.stat-card{
+/* ==========================================
+   SCROLLBAR
+========================================== */
 
-    background:white;
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--secondary);
 
     border-radius:20px;
 
-    padding:30px;
-
-    text-align:center;
-
-    box-shadow:var(--shadow);
-
-    transition:.25s;
-
 }
 
-.stat-card:hover{
-
-    transform:translateY(-8px);
-
-}
-
-.stat-card i{
-
-    font-size:45px;
-
-    color:var(--secondary);
-
-    margin-bottom:20px;
-
-}
-
-.stat-card h2{
-
-    font-size:38px;
-
-}
-
-.stat-card p{
-
-    color:var(--gray);
-
-    margin-top:10px;
-
-}
-
-/* ========================================== */
-
-.grid-2{
-
-    display:grid;
-
-    grid-template-columns:
-
-    repeat(auto-fit,minmax(450px,1fr));
-
-    gap:30px;
-
-}
-
-/* ==========================================
-   SIDEBAR V2
-========================================== */
-
-.sidebar{
-
-    width:270px;
-    min-height:100vh;
-
-    background:linear-gradient(180deg,#1E3A5F,#17304F);
-
-    color:#fff;
-
-    display:flex;
-    flex-direction:column;
-
-    flex-shrink:0;
-
-    transition:
-        width .3s ease,
-        left .3s ease;
-
-    overflow:hidden;
-
-}
-
-/* Header */
-
-.sidebar-header{
-
-    padding:30px 20px;
-    text-align:center;
-
-}
-
-.sidebar-header h2{
-
-    font-size:28px;
-    margin-bottom:6px;
-
-}
-
-.sidebar-header span{
-
-    color:#CBD5E1;
-    font-size:14px;
-
-}
-
-/* Menu */
-
-.sidebar-menu{
-
-    list-style:none;
-    flex:1;
-    padding:10px;
-
-}
-
-.sidebar-menu li{
-
-    display:flex;
-    align-items:center;
-
-    gap:16px;
-
-    padding:16px 18px;
-
-    margin-bottom:10px;
-
-    border-radius:12px;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-}
-
-.sidebar-menu li:hover{
-
-    background:rgba(255,255,255,.12);
-
-}
-
-.sidebar-menu li.active{
-
-    background:#fff;
-
-    color:#1E3A5F;
-
-    font-weight:bold;
-
-}
-
-.sidebar-menu li i{
-
-    width:22px;
-    text-align:center;
-    font-size:18px;
-
-}
-
-/* Footer */
-
-.sidebar-footer{
-
-    padding:20px;
-
-    text-align:center;
-
-    color:#CBD5E1;
-
-    font-size:13px;
-
-}
-
-/* ==========================
-   COLLAPSED DESKTOP
-========================== */
-
-.sidebar.collapsed{
-
-    width:85px;
-
-}
-
-.sidebar.collapsed .sidebar-header span,
-.sidebar.collapsed .sidebar-header h2,
-.sidebar.collapsed .sidebar-menu span,
-.sidebar.collapsed .sidebar-footer{
-
-    display:none;
-
-}
-
-.sidebar.collapsed .sidebar-menu li{
-
-    justify-content:center;
-
-    padding:18px 0;
-
-}
-
-.sidebar.collapsed .sidebar-menu li i{
-
-    margin:0;
-
-}
-
-/* ==========================
-   MOBILE
-========================== */
-
-@media (max-width:768px){
-
-.sidebar{
-
-    position:fixed;
-
-    top:0;
-    left:-270px;
-
-    width:270px;
-    height:100vh;
-
-    z-index:2000;
-
-    box-shadow:0 10px 35px rgba(0,0,0,.35);
-
-}
-
-.sidebar.open{
-
-    left:0;
-
-}
-
-}
-
-/* ==========================================
-   TOP BAR
-========================================== */
-
-.topbar-v2{
-
-    position:sticky;
-    top:0;
-
-    z-index:1500;
-
-    height:85px;
-
-    background:#fff;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:0 25px;
-
-    box-shadow:0 6px 18px rgba(0,0,0,.08);
-
-}
-
-/* Left side */
-
-.topbar-left{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
-}
-
-/* Right side */
-
-.topbar-right{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-}
-
-/* Menu button */
-
-#menuBtn{
-
-    width:48px;
-    height:48px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    border:none;
-
-    border-radius:12px;
+::-webkit-scrollbar-track{
 
     background:#EEF4FB;
-
-    color:#1E3A5F;
-
-    font-size:20px;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-}
-
-#menuBtn:hover{
-
-    background:#2563EB;
-
-    color:white;
-
-}
-
-/* School branding */
-
-.brand{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-}
-
-.brand-logo{
-
-    width:52px;
-
-    height:52px;
-
-    object-fit:contain;
-
-}
-
-.brand-text{
-
-    display:flex;
-
-    flex-direction:column;
-
-}
-
-.brand-text h2{
-
-    margin:0;
-
-    font-size:22px;
-
-    color:#1E3A5F;
-
-}
-
-.brand-text span{
-
-    font-size:13px;
-
-    color:#64748B;
-
-}
-
-/* Notification */
-
-.icon-btn{
-
-    width:48px;
-
-    height:48px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:#EEF4FB;
-
-    color:#1E3A5F;
-
-    position:relative;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-}
-
-.icon-btn:hover{
-
-    background:#2563EB;
-
-    color:white;
-
-}
-
-.icon-btn span{
-
-    position:absolute;
-
-    top:-5px;
-
-    right:-5px;
-
-    width:20px;
-
-    height:20px;
-
-    border-radius:50%;
-
-    background:#DC2626;
-
-    color:white;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:11px;
-
-}
-
-/* ==========================
-   MOBILE TOP BAR
-========================== */
-
-@media (max-width:768px){
-
-.topbar-v2{
-
-    height:70px;
-
-    padding:0 15px;
-
-}
-
-.brand-logo{
-
-    width:42px;
-    height:42px;
-
-}
-
-.brand-text h2{
-
-    font-size:20px;
-
-}
-
-/* Hide long name */
-
-.brand-text span{
-
-    display:none;
-
-}
-
-/* Show initials */
-
-.brand-text h2::after{
-
-    content:"";
-
-}
-
-/* We'll change the HTML later to JRCA */
-
-}
-
-/* ==========================================
-   LAYOUT + RESPONSIVE
-========================================== */
-
-/* Dashboard layout */
-
-.dashboard{
-
-    display:flex;
-
-    min-height:calc(100vh - 85px);
-
-}
-
-.content{
-
-    flex:1;
-
-    padding:35px;
-
-    transition:margin-left .3s ease;
-
-}
-
-/* Overlay */
-
-.sidebar-overlay{
-
-    position:fixed;
-
-    inset:0;
-
-    background:rgba(0,0,0,.45);
-
-    opacity:0;
-
-    visibility:hidden;
-
-    transition:.3s;
-
-    z-index:1900;
-
-}
-
-.sidebar-overlay.show{
-
-    opacity:1;
-
-    visibility:visible;
-
-}
-
-/* ==========================
-   TABLET
-========================== */
-
-@media (max-width:1000px){
-
-.dashboard-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-}
-
-/* ==========================
-   MOBILE
-========================== */
-
-@media (max-width:768px){
-
-.dashboard{
-
-    display:block;
-
-}
-
-.content{
-
-    padding:20px;
-
-}
-
-.hero{
-
-    flex-direction:column;
-
-    text-align:center;
-
-    padding:30px;
-
-}
-
-.hero-left h1{
-
-    font-size:34px;
-
-}
-
-.hero-right{
-
-    width:100%;
-
-    justify-content:center;
-
-    flex-direction:column;
-
-}
-
-.hero-right button{
-
-    width:100%;
-
-}
-
-.status-card{
-
-    flex-direction:column;
-
-    text-align:center;
-
-}
-
-.status-badge{
-
-    width:100%;
-
-}
-
-.stats-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-.dashboard-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-.quick-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-.brand-text h2{
-
-    font-size:0;
-
-}
-
-.brand-text h2::before{
-
-    content:"JRCA";
-
-    font-size:22px;
-
-    color:#1E3A5F;
-
-    font-weight:700;
-
-}
-
-}
-
-/* ==========================
-   DESKTOP
-========================== */
-
-@media (min-width:769px){
-
-.sidebar.open{
-
-    width:85px;
-
-}
-
-.sidebar.open .sidebar-header h2,
-.sidebar.open .sidebar-header span,
-.sidebar.open .sidebar-menu span,
-.sidebar.open .sidebar-footer{
-
-    display:none;
-
-}
-
-.sidebar.open .sidebar-menu li{
-
-    justify-content:center;
-
-}
-
-.sidebar.open .sidebar-menu li i{
-
-    margin:0;
-
-}
 
 }
