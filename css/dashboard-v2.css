@@ -45,6 +45,13 @@ body{
 
 }
 
+html,
+body{
+
+    overflow-x:hidden;
+
+}
+
 /* =====================================================
    LAYOUT
 ===================================================== */
@@ -134,6 +141,8 @@ body{
     cursor:pointer;
 
     transition:.25s;
+
+    flex-shrink:0;
 
 }
 
@@ -377,6 +386,8 @@ body{
    DESKTOP COLLAPSED SIDEBAR
 ===================================================== */
 
+@media (min-width:769px){
+
 .sidebar.open{
 
     width:85px;
@@ -403,6 +414,8 @@ body{
 .sidebar.open .sidebar-menu li i{
 
     margin:0;
+
+}
 
 }
 
@@ -654,10 +667,6 @@ body{
    RESPONSIVE
 ===================================================== */
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-
 @media (max-width:768px){
 
     /* ---------- TOP BAR ---------- */
@@ -793,9 +802,9 @@ body{
 
         height:100vh;
 
-        z-index:3000;
-
         transition:left .3s ease;
+
+        z-index:3000;
 
     }
 
