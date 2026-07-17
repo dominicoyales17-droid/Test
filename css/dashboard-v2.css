@@ -824,14 +824,11 @@ a{
 .topbar-left{
 
     display:flex;
-
     align-items:center;
-
     gap:8px;
 
-    flex:1;
-
-    min-width:0;
+    width:calc(100% - 48px);
+    overflow:hidden;
 
 }
 
@@ -850,14 +847,13 @@ a{
 .brand{
 
     display:flex;
-
     align-items:center;
 
-    gap:8px;
+    gap:6px;
+
+    flex:1;
 
     min-width:0;
-
-    overflow:hidden;
 
 }
 
@@ -873,17 +869,15 @@ a{
 
 .brand-text{
 
-    min-width:0;
+    flex:1;
 
-    overflow:hidden;
+    min-width:0;
 
 }
 
 .mobile-title{
 
-    font-size:18px;
-
-    line-height:1;
+    font-size:16px;
 
 }
 
@@ -1048,7 +1042,6 @@ a{
     display:flex;
     flex-direction:column;
     gap:6px;
-}
 
 }
 
@@ -1069,7 +1062,6 @@ a{
 .content{
 
     width:100%;
-
     padding:18px;
 
 }
@@ -1079,13 +1071,9 @@ a{
 .hero{
 
     flex-direction:column;
-
     align-items:flex-start;
-
     text-align:left;
-
     padding:22px;
-
     gap:18px;
 
 }
@@ -1099,7 +1087,6 @@ a{
 .hero-right{
 
     width:100%;
-
     flex-direction:column;
 
 }
@@ -1115,7 +1102,6 @@ a{
 .status-card{
 
     flex-direction:column;
-
     align-items:flex-start;
 
 }
@@ -1123,7 +1109,6 @@ a{
 .status-badge{
 
     width:100%;
-
     text-align:center;
 
 }
@@ -1133,6 +1118,8 @@ a{
 .dashboard-grid{
 
     grid-template-columns:1fr;
+
+}
 
 }
 
