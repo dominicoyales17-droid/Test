@@ -95,37 +95,40 @@
 
         <section class="page-header">
 
-            <h1>
-
-                📢 Announcements
-
-            </h1>
+            <h1>Announcements</h1>
 
             <p>
-
-                Stay updated with the latest campus safety announcements.
-
+                View the latest school announcements, emergency alerts, and campus safety updates.
             </p>
 
         </section>
 
         <section class="search-section">
 
-            <input
+            <div class="search-box">
 
-                type="text"
+                <i class="fa-solid fa-magnifying-glass"></i>
 
-                id="searchAnnouncement"
+                <input
+                    type="text"
+                    id="searchAnnouncement"
+                    placeholder="Search announcements...">
 
-                placeholder="🔍 Search announcements..."
-
-            >
+            </div>
 
         </section>
 
-        <section id="announcementList" class="announcement-grid">
+        <section
+            id="announcementList"
+            class="announcement-grid">
 
-            Loading announcements...
+            <div class="announcement-loading">
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                <p>Loading announcements...</p>
+
+            </div>
 
         </section>
 

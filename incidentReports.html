@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Incident Reports | Safety First</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/theme.css">
+
+    <link rel="stylesheet" href="css/dashboard-v2.css">
+
+    <link rel="stylesheet" href="css/incidentReports.css">
+
+</head>
+
+<body>
+
+<header class="topbar-v2">
+
+    <div class="topbar-left">
+
+        <button id="menuBtn" class="icon-btn">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+        <div class="brand">
+
+            <img src="images/JRCA LOGO.jpg"
+                 class="brand-logo">
+
+            <div class="brand-text">
+
+                <h2 class="desktop-title">
+
+                    JESUS REIGNS CHRISTIAN ACADEMY
+
+                </h2>
+
+                <h2 class="mobile-title">
+
+                    JRCA
+
+                </h2>
+
+                <span class="desktop-subtitle">
+
+                    Safety Information and Preparedness Management System
+
+                </span>
+
+                <span class="mobile-subtitle">
+
+                    SIPMS
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="topbar-right">
+
+        <button id="notificationBell"
+                class="icon-btn">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <span id="notificationCount">
+
+                0
+
+            </span>
+
+        </button>
+
+    </div>
+
+</header>
+
+<div id="notificationPanel"
+     class="notification-panel">
+
+    <h3>
+
+        Notifications
+
+    </h3>
+
+    <div id="notificationList">
+
+        No notifications.
+
+    </div>
+
+</div>
+
+<div class="dashboard">
+
+    <aside class="sidebar"></aside>
+
+    <main class="content">
+
+        <section class="page-header">
+
+            <h1>
+
+                📝 Incident Reports
+
+            </h1>
+
+            <p>
+
+                Report accidents, hazards, bullying, damaged facilities, or other safety concerns.
+
+            </p>
+
+        </section>
+
+        <!-- REPORT FORM -->
+
+        <section class="report-card">
+
+            <h2>
+
+                Submit an Incident Report
+
+            </h2>
+
+            <form id="incidentForm">
+
+                <div class="form-group">
+
+                    <label>
+
+                        Incident Type
+
+                    </label>
+
+                    <select id="incidentType" required>
+
+                        <option value="">
+
+                            Select Incident
+
+                        </option>
+
+                        <option>
+
+                            Accident
+
+                        </option>
+
+                        <option>
+
+                            Fire
+
+                        </option>
+
+                        <option>
+
+                            Medical Emergency
+
+                        </option>
+
+                        <option>
+
+                            Bullying
+
+                        </option>
+
+                        <option>
+
+                            Damaged Facility
+
+                        </option>
+
+                        <option>
+
+                            Suspicious Activity
+
+                        </option>
+
+                        <option>
+
+                            Other
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+
+                        Location
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Example: Room 204"
+                        required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+
+                        Description
+
+                    </label>
+
+                    <textarea
+                        id="description"
+                        rows="6"
+                        placeholder="Describe what happened..."
+                        required></textarea>
+
+                </div>
+
+                <button
+                    id="submitReport"
+                    type="submit"
+                    class="primary-btn">
+
+                    <i class="fa-solid fa-paper-plane"></i>
+
+                    Submit Report
+
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- MY REPORTS -->
+
+        <section class="reports-card">
+
+            <h2>
+
+                My Submitted Reports
+
+            </h2>
+
+            <div id="reportList">
+
+                Loading reports...
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script type="module">
+
+import { loadStudentSidebar }
+from "./js/components/studentSidebar.js";
+
+loadStudentSidebar("incidentReports");
+
+</script>
+
+<script type="module"
+        src="js/pages/incidentReports.js"></script>
+
+<script type="module"
+        src="js/components/notifications.js"></script>
+
+</body>
+
+</html>

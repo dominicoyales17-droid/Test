@@ -88,12 +88,10 @@
 
         <section class="page-header">
 
-            <h1>
-                👤 My Profile
-            </h1>
+            <h1>My Profile</h1>
 
             <p>
-                Manage your account information and personalize your profile.
+                View your account details, update your information, and manage your profile.
             </p>
 
         </section>
@@ -102,7 +100,7 @@
 
             <!-- LEFT CARD -->
 
-            <section class="profile-card">
+            <section class="profile-card profile-side-card">
 
                 <div class="profile-header">
 
@@ -111,6 +109,14 @@
                         src="images/default-profile.png"
                         class="profile-image"
                         alt="Profile">
+
+                    <h2 id="profileName">
+                        Student
+                    </h2>
+
+                    <p id="profileRole">
+                        Student Account
+                    </p>
 
                     <button
                         id="changePhotoBtn"
@@ -140,72 +146,52 @@
 
                     <div class="info-box">
 
-                        <i class="fa-solid fa-user"></i>
+                        <div class="info-icon">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
 
-                        <div>
-
+                        <div class="info-content">
                             <small>Username</small>
-
-                            <strong id="overviewUsername">
-
-                                -
-
-                            </strong>
-
+                            <strong id="overviewUsername">Loading...</strong>
                         </div>
 
                     </div>
 
                     <div class="info-box">
 
-                        <i class="fa-solid fa-envelope"></i>
+                        <div class="info-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
 
-                        <div>
-
-                            <small>Email</small>
-
-                            <strong id="overviewEmail">
-
-                                -
-
-                            </strong>
-
+                        <div class="info-content">
+                            <small>Email Address</small>
+                            <strong id="overviewEmail">Loading...</strong>
                         </div>
 
                     </div>
 
                     <div class="info-box">
 
-                        <i class="fa-solid fa-user-shield"></i>
+                        <div class="info-icon">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
 
-                        <div>
-
-                            <small>Role</small>
-
-                            <strong id="overviewRole">
-
-                                -
-
-                            </strong>
-
+                        <div class="info-content">
+                            <small>Account Role</small>
+                            <strong id="overviewRole">Loading...</strong>
                         </div>
 
                     </div>
 
                     <div class="info-box">
 
-                        <i class="fa-solid fa-circle-check"></i>
+                        <div class="info-icon">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
 
-                        <div>
-
-                            <small>Status</small>
-
-                            <strong>
-
-                                Active
-
-                            </strong>
-
+                        <div class="info-content">
+                            <small>Account Status</small>
+                            <strong class="status-active">Active</strong>
                         </div>
 
                     </div>
@@ -213,52 +199,72 @@
                 </div>
 
                 <h2 class="profile-section-title">
-
                     Edit Information
-
                 </h2>
 
                 <form class="profile-form">
 
-                    <div class="form-group">
+                    <div class="form-row">
 
-                        <label>Username</label>
+                        <div class="form-group">
 
-                        <input
-                            type="text"
-                            id="username">
+                            <label>
+                                <i class="fa-solid fa-user"></i>
+                                Username
+                            </label>
+
+                            <input
+                                type="text"
+                                id="username"
+                                placeholder="Enter your username">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>
+                                <i class="fa-solid fa-envelope"></i>
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                readonly>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label>
+                                <i class="fa-solid fa-user-shield"></i>
+                                Role
+                            </label>
+
+                            <input
+                                type="text"
+                                id="role"
+                                readonly>
+
+                        </div>
 
                     </div>
 
                     <div class="form-group">
 
-                        <label>Email</label>
-
-                        <input
-                            type="email"
-                            id="email"
-                            readonly>
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Role</label>
-
-                        <input
-                            type="text"
-                            id="role"
-                            readonly>
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Bio</label>
+                        <label>
+                            <i class="fa-solid fa-address-card"></i>
+                            Bio
+                        </label>
 
                         <textarea
                             id="bio"
-                            rows="5"></textarea>
+                            rows="5"
+                            placeholder="Tell us something about yourself..."></textarea>
 
                     </div>
 

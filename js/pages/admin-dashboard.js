@@ -1,5 +1,7 @@
 import { auth, db } from "../firebase.js";
 
+import { protectAdminPage } from "../components/adminGuard.js";
+
 import {
     onAuthStateChanged,
     signOut
@@ -23,6 +25,7 @@ const totalUsers = document.getElementById("totalUsers");
 const totalStudents = document.getElementById("totalStudents");
 const totalAdmins = document.getElementById("totalAdmins");
 const totalAnnouncements = document.getElementById("totalAnnouncements");
+const currentDate = document.getElementById("currentDate");
 
 protectAdminPage();
 
@@ -41,6 +44,14 @@ onAuthStateChanged(auth, async (user) => {
     }
 
     adminName.textContent = user.email;
+
+    currentDate.textContent =
+    new Date().toLocaleString(undefined,{
+        weekday:"long",
+        year:"numeric",
+        month:"long",
+        day:"numeric"
+    });
 
     loadDashboard();
 
@@ -103,7 +114,3 @@ async function loadDashboard() {
         announcements.size;
 
 }
-
-import { auth, db } from "../firebase.js";
-
-import { protectAdminPage } from "../components/adminGuard.js";

@@ -52,99 +52,211 @@
 
 <main class="content">
 
-<div class="hero-card">
+<section class="admin-hero">
 
-<h1>
+    <div>
 
-👋 Welcome, Administrator
+        <h1 id="welcomeTitle">
 
-</h1>
+            👋 Welcome, Administrator
 
-<p>
+        </h1>
 
-Manage your Safety First system from one place.
+        <p>
 
-</p>
+            School Emergency & Safety Information System
 
-</div>
+        </p>
 
-<div class="stats-grid">
+    </div>
 
-<div class="stat-card">
+    <div class="hero-date">
 
-<i class="fa-solid fa-users"></i>
+        <i class="fa-solid fa-calendar-days"></i>
 
-<h2 id="totalUsers">0</h2>
+        <span id="currentDate"></span>
 
-<p>Total Users</p>
+    </div>
 
-</div>
+</section>
 
-<div class="stat-card">
+<section class="stats-grid">
 
-<i class="fa-solid fa-user-graduate"></i>
+    <div class="stat-card">
 
-<h2 id="totalStudents">0</h2>
+        <i class="fa-solid fa-users"></i>
 
-<p>Students</p>
+        <h2 id="totalUsers">0</h2>
 
-</div>
+        <span>Total Users</span>
 
-<div class="stat-card">
+    </div>
 
-<i class="fa-solid fa-user-shield"></i>
+    <div class="stat-card">
 
-<h2 id="totalAdmins">0</h2>
+        <i class="fa-solid fa-user-graduate"></i>
 
-<p>Admins</p>
+        <h2 id="totalStudents">0</h2>
 
-</div>
+        <span>Students</span>
 
-<div class="stat-card">
+    </div>
 
-<i class="fa-solid fa-bullhorn"></i>
+    <div class="stat-card">
 
-<h2 id="totalAnnouncements">0</h2>
+        <i class="fa-solid fa-user-shield"></i>
 
-<p>Announcements</p>
+        <h2 id="totalAdmins">0</h2>
 
-</div>
+        <span>Admins</span>
 
-</div>
+    </div>
 
-<div class="card">
+    <div class="stat-card">
 
-<h2>
+        <i class="fa-solid fa-bullhorn"></i>
 
-Quick Actions
+        <h2 id="totalAnnouncements">0</h2>
 
-</h2>
+        <span>Announcements</span>
 
-<br>
+    </div>
 
-<button onclick="location.href='admin-announcement.html'">
+    <div class="stat-card">
 
-📢 Manage Announcements
+        <i class="fa-solid fa-triangle-exclamation"></i>
 
-</button>
+        <h2 id="totalReports">0</h2>
 
-<br><br>
+        <span>Incident Reports</span>
 
-<button onclick="location.href='users.html'">
+    </div>
 
-👥 User Management
+    <div class="stat-card">
 
-</button>
+        <i class="fa-solid fa-bell"></i>
 
-<br><br>
+        <h2 id="activeAlerts">0</h2>
 
-<button onclick="location.href='reports.html'">
+        <span>Emergency Alerts</span>
 
-📊 Reports
+    </div>
 
-</button>
+</section>
 
-</div>
+<section class="dashboard-grid">
+
+    <div class="card dashboard-card">
+
+        <h2>
+            📈 System Overview
+        </h2>
+
+        <div id="dashboardChart">
+
+            Charts coming soon...
+
+        </div>
+
+    </div>
+
+    <div class="card dashboard-card">
+
+        <h2>
+            📰 Recent Activity
+        </h2>
+
+        <div id="recentActivity">
+
+            Loading...
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="card">
+
+    <h2>
+        🟢 System Status
+    </h2>
+
+    <div class="status-grid">
+
+        <div class="status-item">
+            🟢 Firebase Connected
+        </div>
+
+        <div class="status-item">
+            🟢 Authentication Active
+        </div>
+
+        <div class="status-item">
+            🟢 Firestore Database
+        </div>
+
+        <div class="status-item">
+            🟢 Notification Service
+        </div>
+
+    </div>
+
+</section>
+
+<section class="card recent-activity">
+
+    <h2>
+
+        Recent Activity
+
+    </h2>
+
+    <div id="recentActivity">
+
+        Loading recent activity...
+
+    </div>
+
+</section>
+
+<section class="card system-status">
+
+    <h2>
+
+        System Status
+
+    </h2>
+
+    <div class="status-grid">
+
+        <div class="status-item">
+
+            🟢 Firebase Connected
+
+        </div>
+
+        <div class="status-item">
+
+            🟢 Authentication Active
+
+        </div>
+
+        <div class="status-item">
+
+            🟢 Notification Service
+
+        </div>
+
+        <div class="status-item">
+
+            🟢 Emergency System Ready
+
+        </div>
+
+    </div>
+
+</section>
 
 </main>
 

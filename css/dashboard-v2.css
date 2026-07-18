@@ -357,18 +357,23 @@ button{
 
 .sidebar-header{
 
-    padding:25px 20px;
+    padding:28px 20px;
 
     text-align:center;
+
+    border-bottom:1px solid rgba(255,255,255,.12);
 
 }
 
 .sidebar-header h2{
 
-    font-size:22px;
+    font-size:24px;
+
     font-weight:700;
 
-    margin-bottom:4px;
+    letter-spacing:1px;
+
+    margin-bottom:6px;
 
 }
 
@@ -399,20 +404,23 @@ button{
 
 .sidebar-menu li{
 
-    height:52px;
-
     display:flex;
     align-items:center;
-
     gap:14px;
+
+    height:50px;
 
     padding:0 18px;
 
-    border-radius:12px;
+    margin:6px 10px;
+
+    border-radius:14px;
 
     cursor:pointer;
 
-    transition:.25s;
+    color:#E2E8F0;
+
+    transition:all .25s ease;
 
 }
 
@@ -420,9 +428,17 @@ button{
 
     width:22px;
 
+    font-size:18px;
+
     text-align:center;
 
-    font-size:18px;
+    transition:.25s;
+
+}
+
+.sidebar-menu li:hover i{
+
+    transform:scale(1.15);
 
 }
 
@@ -432,7 +448,11 @@ button{
 
 .sidebar-menu li:hover{
 
-    background:rgba(255,255,255,.12);
+    background:rgba(255,255,255,.15);
+
+    transform:translateX(4px);
+
+    color:#FFFFFF;
 
 }
 
@@ -442,11 +462,13 @@ button{
 
 .sidebar-menu li.active{
 
-    background:#fff;
+    background:#FFFFFF;
 
-    color:var(--primary);
+    color:#1E3A5F;
 
-    font-weight:600;
+    font-weight:700;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
 
 }
 
@@ -468,9 +490,11 @@ button{
 
     text-align:center;
 
+    font-size:13px;
+
     color:#CBD5E1;
 
-    font-size:13px;
+    border-top:1px solid rgba(255,255,255,.12);
 
 }
 

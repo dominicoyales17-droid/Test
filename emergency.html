@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Emergency Alert | Safety First</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/dashboard-v2.css">
+<link rel="stylesheet" href="css/emergency.css">
+
+</head>
+
+<body>
+
+<header class="topbar-v2">
+
+    <div class="topbar-left">
+
+        <button id="menuBtn" class="icon-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="brand">
+
+            <img src="images/JRCA LOGO.jpg" class="brand-logo">
+
+            <div class="brand-text">
+
+                <h2 class="desktop-title">
+                    JESUS REIGNS CHRISTIAN ACADEMY
+                </h2>
+
+                <h2 class="mobile-title">
+                    JRCA
+                </h2>
+
+                <span class="desktop-subtitle">
+                    Safety Information and Preparedness Management System
+                </span>
+
+                <span class="mobile-subtitle">
+                    SIPMS
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="topbar-right">
+
+        <button id="notificationBell" class="icon-btn">
+            <i class="fa-solid fa-bell"></i>
+            <span id="notificationCount">0</span>
+        </button>
+
+    </div>
+
+</header>
+
+<div id="notificationPanel" class="notification-panel">
+
+    <h3>Notifications</h3>
+
+    <div id="notificationList">
+        No notifications.
+    </div>
+
+</div>
+
+<div class="dashboard">
+
+    <aside class="sidebar"></aside>
+
+    <main class="content">
+
+        <section class="page-header">
+
+            <h1>
+                🚨 Emergency Alert
+            </h1>
+
+            <p>
+                Stay informed about emergency situations and follow official safety instructions.
+            </p>
+
+        </section>
+
+        <!-- Current Status -->
+
+        <section class="emergency-status safe">
+
+            <div>
+
+                <h2 id="statusTitle">
+                    🟢 No Active Emergency
+                </h2>
+
+                <p id="statusMessage">
+                    The campus is operating normally. No emergency alerts have been issued.
+                </p>
+
+            </div>
+
+            <span id="statusBadge" class="status-badge">
+                SAFE
+            </span>
+
+        </section>
+
+        <!-- Emergency Instructions -->
+
+        <section class="info-card">
+
+            <h2>
+                📋 What To Do During an Emergency
+            </h2>
+
+            <div class="instruction-grid">
+
+                <div class="instruction-card">
+
+                    <i class="fa-solid fa-person-running"></i>
+
+                    <h3>Stay Calm</h3>
+
+                    <p>
+                        Remain calm and listen carefully to school announcements.
+                    </p>
+
+                </div>
+
+                <div class="instruction-card">
+
+                    <i class="fa-solid fa-door-open"></i>
+
+                    <h3>Evacuate</h3>
+
+                    <p>
+                        Follow your teacher and proceed to the designated evacuation area.
+                    </p>
+
+                </div>
+
+                <div class="instruction-card">
+
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    <h3>Report Hazards</h3>
+
+                    <p>
+                        Inform school personnel immediately if you notice dangerous situations.
+                    </p>
+
+                </div>
+
+                <div class="instruction-card">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    <h3>Emergency Contacts</h3>
+
+                    <p>
+                        Call emergency services only when necessary.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Emergency Numbers -->
+
+        <section class="info-card">
+
+            <h2>
+                ☎ Emergency Contacts
+            </h2>
+
+            <div class="contact-grid">
+
+                <div class="contact-card">
+
+                    <i class="fa-solid fa-building-shield"></i>
+
+                    <h3>School Office</h3>
+
+                    <p>(Insert Number)</p>
+
+                </div>
+
+                <div class="contact-card">
+
+                    <i class="fa-solid fa-fire-extinguisher"></i>
+
+                    <h3>Fire Department</h3>
+
+                    <p>911</p>
+
+                </div>
+
+                <div class="contact-card">
+
+                    <i class="fa-solid fa-truck-medical"></i>
+
+                    <h3>Ambulance</h3>
+
+                    <p>911</p>
+
+                </div>
+
+                <div class="contact-card">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <h3>Police</h3>
+
+                    <p>911</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script type="module">
+
+import { loadStudentSidebar }
+from "./js/components/studentSidebar.js";
+
+loadStudentSidebar("emergency");
+
+</script>
+
+<script type="module" src="js/components/notifications.js"></script>
+<script type="module" src="js/pages/emergency.js"></script>
+
+</body>
+
+</html>

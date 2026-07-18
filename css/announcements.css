@@ -106,19 +106,25 @@
 
 .priority-badge{
 
-    display:inline-block;
+    display:inline-flex;
 
-    color:white;
+    align-items:center;
 
-    padding:8px 18px;
+    justify-content:center;
 
-    border-radius:30px;
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    color:#fff;
 
     font-size:13px;
 
-    font-weight:bold;
+    font-weight:700;
 
-    margin-bottom:18px;
+    letter-spacing:.3px;
+
+    text-transform:uppercase;
 
 }
 
@@ -365,5 +371,307 @@ max-width:100%;
     color:#2563EB;
 
     margin-right:8px;
+
+}
+
+/* ==========================================
+   SEARCH BOX V2
+========================================== */
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    max-width:650px;
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:0 18px;
+
+    box-shadow:var(--shadow);
+
+    transition:.25s;
+
+}
+
+.search-box:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.search-box:focus-within{
+
+    border-color:var(--secondary);
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+
+}
+
+.search-box i{
+
+    color:#64748B;
+
+    font-size:18px;
+
+}
+
+.search-box input{
+
+    border:none;
+
+    box-shadow:none;
+
+    background:transparent;
+
+    padding:18px 0;
+
+}
+
+.search-box input:focus{
+
+    box-shadow:none;
+
+    transform:none;
+
+}
+
+/* ==========================================
+   LOADING STATE
+========================================== */
+
+.announcement-loading{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:70px 30px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+}
+
+.announcement-loading i{
+
+    font-size:42px;
+
+    color:var(--secondary);
+
+    margin-bottom:18px;
+
+}
+
+.announcement-loading p{
+
+    color:#64748B;
+
+    font-size:17px;
+
+}
+
+/* ==========================================
+   CARD IMPROVEMENTS
+========================================== */
+
+.announcement-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.announcement-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:6px;
+
+    height:100%;
+
+    background:#2563EB;
+
+}
+
+/* ==========================================
+   PRIORITY COLORS
+========================================== */
+
+.announcement-card.normal::after{
+
+    background:#2563EB;
+
+}
+
+.announcement-card.important::after{
+
+    background:#F59E0B;
+
+}
+
+.announcement-card.emergency::after{
+
+    background:#DC2626;
+
+}
+
+.announcement-card.normal{
+
+    border-left:6px solid #2563EB;
+
+}
+
+.announcement-card.important{
+
+    border-left:6px solid #F59E0B;
+
+    box-shadow:0 12px 30px rgba(245,158,11,.15);
+
+}
+
+.announcement-card.emergency{
+
+    border-left:6px solid #DC2626;
+
+    box-shadow:0 12px 30px rgba(220,38,38,.18);
+
+}
+
+.announcement-card h2{
+
+    font-size:26px;
+
+}
+
+.announcement-card small{
+
+    display:block;
+
+    margin-top:18px;
+
+    color:#64748B;
+
+}
+
+.priority-badge{
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width:768px){
+
+    .search-box{
+
+        max-width:100%;
+
+    }
+
+    .announcement-card{
+
+        padding:22px;
+
+    }
+
+}
+
+/* ==========================================
+   ANNOUNCEMENT FOOTER V2
+========================================== */
+
+.announcement-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-top:24px;
+
+    padding-top:18px;
+
+    border-top:1px solid var(--border);
+
+    color:#64748B;
+
+    font-size:14px;
+
+}
+
+.announcement-footer strong{
+
+    color:#1E3A5F;
+
+}
+
+.announcement-footer i{
+
+    color:#2563EB;
+
+    margin-right:6px;
+
+}
+
+.announcement-date{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#64748B;
+
+    font-size:14px;
+
+}
+
+@media(max-width:768px){
+
+    .announcement-top{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+    }
+
+    .announcement-footer{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
 
 }

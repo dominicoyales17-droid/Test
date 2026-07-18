@@ -69,7 +69,7 @@ function displayAnnouncements(list) {
 
         announcementList.innerHTML += `
 
-        <div class="announcement-card">
+        <div class="announcement-card ${item.priority.toLowerCase()}">
 
             <div class="announcement-top">
 
@@ -91,17 +91,9 @@ function displayAnnouncements(list) {
 
             </div>
 
-            <h2>
+            <h2>${item.title}</h2>
 
-                ${item.title}
-
-            </h2>
-
-            <p>
-
-                ${item.message}
-
-            </p>
+            <p>${item.message}</p>
 
             <div class="announcement-footer">
 
@@ -109,7 +101,15 @@ function displayAnnouncements(list) {
 
                     <i class="fa-solid fa-user"></i>
 
-                    ${item.postedBy}
+                    Posted by <strong>${item.postedBy}</strong>
+
+                </div>
+
+                <div>
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    Safety Update
 
                 </div>
 

@@ -1,0 +1,289 @@
+/* ==========================================
+   EMERGENCY PAGE
+========================================== */
+
+.page-header{
+
+    margin-bottom:30px;
+
+}
+
+.page-header h1{
+
+    font-size:40px;
+
+    color:#1E3A5F;
+
+    margin-bottom:10px;
+
+}
+
+.page-header p{
+
+    color:#64748B;
+
+    font-size:16px;
+
+}
+
+/* ==========================================
+   EMERGENCY STATUS
+========================================== */
+
+.emergency-status{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    margin-bottom:35px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.emergency-status.safe{
+
+    border-left:8px solid #10B981;
+
+}
+
+.emergency-status.warning{
+
+    border-left:8px solid #F59E0B;
+
+}
+
+.emergency-status.danger{
+
+    border-left:8px solid #DC2626;
+
+}
+
+.emergency-status h2{
+
+    color:#1E3A5F;
+
+    margin-bottom:10px;
+
+}
+
+.emergency-status p{
+
+    color:#64748B;
+
+    line-height:1.7;
+
+}
+
+.status-badge{
+
+    background:#10B981;
+
+    color:white;
+
+    padding:12px 26px;
+
+    border-radius:999px;
+
+    font-weight:700;
+
+}
+
+/* ==========================================
+   INFORMATION CARD
+========================================== */
+
+.info-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.info-card h2{
+
+    color:#1E3A5F;
+
+    margin-bottom:25px;
+
+}
+
+/* ==========================================
+   INSTRUCTIONS
+========================================== */
+
+.instruction-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+.instruction-card{
+
+    background:#F8FAFC;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    text-align:center;
+
+    transition:.25s;
+
+}
+
+.instruction-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.instruction-card i{
+
+    font-size:42px;
+
+    color:#2563EB;
+
+    margin-bottom:18px;
+
+}
+
+.instruction-card h3{
+
+    color:#1E3A5F;
+
+    margin-bottom:10px;
+
+}
+
+.instruction-card p{
+
+    color:#64748B;
+
+    line-height:1.7;
+
+}
+
+/* ==========================================
+   CONTACTS
+========================================== */
+
+.contact-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+.contact-card{
+
+    background:#F8FAFC;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    text-align:center;
+
+    transition:.25s;
+
+}
+
+.contact-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.contact-card i{
+
+    font-size:40px;
+
+    color:#2563EB;
+
+    margin-bottom:15px;
+
+}
+
+.contact-card h3{
+
+    color:#1E3A5F;
+
+    margin-bottom:8px;
+
+}
+
+.contact-card p{
+
+    color:#64748B;
+
+    font-size:15px;
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width:768px){
+
+    .page-header h1{
+
+        font-size:32px;
+
+    }
+
+    .emergency-status{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .status-badge{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+    .instruction-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .contact-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

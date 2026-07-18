@@ -41,6 +41,18 @@ export function loadStudentSidebar(activePage) {
                 <span>Profile</span>
             </li>
 
+            <li class="${activePage==="emergency"?"active":""}"
+                onclick="location.href='emergency.html'">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span>Emergency Alert</span>
+            </li>
+
+            <li class="${activePage==="incidentReports"?"active":""}"
+                onclick="location.href='incidentReports.html'">
+                <i class="fa-solid fa-file-circle-exclamation"></i>
+                <span>Incident Reports</span>
+            </li>
+
         </ul>
 
         <div class="sidebar-footer">
