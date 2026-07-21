@@ -218,6 +218,95 @@ Loading users...
 
 </div>
 
+<!-- ===========================
+     EDIT USER MODAL
+=========================== -->
+
+<div id="editUserModal" class="modal hidden">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>
+
+                <i class="fa-solid fa-user-pen"></i>
+
+                Edit User
+
+            </h2>
+
+            <button id="closeEditModal" class="close-btn">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <input type="hidden" id="editUserId">
+
+            <label>
+
+                Username
+
+            </label>
+
+            <input
+                type="text"
+                id="editUsername"
+                placeholder="Enter username">
+
+            <label>
+
+                Role
+
+            </label>
+
+            <select id="editRole">
+
+                <option value="student">
+
+                    Student
+
+                </option>
+
+                <option value="admin">
+
+                    Administrator
+
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button
+                id="cancelEditUser"
+                class="btn-secondary">
+
+                Cancel
+
+            </button>
+
+            <button
+                id="saveUserChanges"
+                class="btn-primary">
+
+                Save Changes
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
 <script type="module">
 
 import { loadAdminSidebar }

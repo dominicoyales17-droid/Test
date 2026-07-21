@@ -11,6 +11,14 @@ import {
     getDocs
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
+import {
+
+    updateUser,
+    deleteUser
+
+}
+from "../services/userService.js";
+
 protectAdminPage();
 
 // =========================
@@ -33,6 +41,31 @@ const adminCount =
 document.getElementById("adminCount");
 
 let users = [];
+
+// =========================
+// Edit Modal
+// =========================
+
+const editModal =
+document.getElementById("editUserModal");
+
+const editUserId =
+document.getElementById("editUserId");
+
+const editUsername =
+document.getElementById("editUsername");
+
+const editRole =
+document.getElementById("editRole");
+
+const saveUserChanges =
+document.getElementById("saveUserChanges");
+
+const cancelEditUser =
+document.getElementById("cancelEditUser");
+
+const closeEditModal =
+document.getElementById("closeEditModal");
 
 // =========================
 // Authentication
@@ -241,9 +274,20 @@ function attachEvents(){
 
         button.onclick=()=>{
 
-            alert(
-                "Edit feature coming soon."
-            );
+            const id=button.dataset.id;
+
+            const user=
+            users.find(u=>u.id===id);
+
+            if(!user) return;
+
+            editUserId.value=user.id;
+
+            editUsername.value=user.username;
+
+            editRole.value=user.role;
+
+            editModal.classList.remove("hidden");
 
         };
 
@@ -252,14 +296,72 @@ function attachEvents(){
     document.querySelectorAll(".delete-btn")
     .forEach(button=>{
 
-        button.onclick=()=>{
+        button.onclick=async()=>{
 
-            alert(
-                "Delete feature coming soon."
-            );
+            const id=button.dataset.id;
+
+            if(!confirm("Delete this user?")){
+
+                return;
+
+            }
+
+            await deleteUser(id);
+
+            await loadUsers();
 
         };
 
     });
 
 }
+
+// =========================
+// Save Changes
+// =========================
+
+saveUserChanges.onclick=async()=>{
+
+    await updateUser(
+
+        editUserId.value,
+
+        {
+
+            username:
+            editUsername.value.trim(),
+
+            role:
+            editRole.value
+
+        }
+
+    );
+
+    editModal.classList.add("hidden");
+
+    await loadUsers();
+
+};
+
+cancelEditUser.onclick=()=>{
+
+    editModal.classList.add("hidden");
+
+};
+
+closeEditModal.onclick=()=>{
+
+    editModal.classList.add("hidden");
+
+};
+
+window.onclick=(e)=>{
+
+    if(e.target===editModal){
+
+        editModal.classList.add("hidden");
+
+    }
+
+};
